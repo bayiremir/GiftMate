@@ -65,6 +65,40 @@ app.post('/login', (req, res, next) => {
   })(req, res, next);
 });
 
+app.post('/transfer-balance', passport.authenticate('jwt', { session: false }), async (req, res) => {
+  const { senderId, receiverId, amount } = req.body;
+
+  if (!senderId || !receiverId || !amount) {
+    return res.status(400).json({ message: 'Missing required fields' });
+  }
+
+  try {
+    const sender = await User.findById(senderId);
+    const receiver = await User.findById(receiverId);
+
+    if (!sender || !receiver) {
+      return res.status(404).json({ message: 'Sender or receiver not found' });
+    }
+
+    if (sender.balance < amount) {
+      return res.status(400).json({ message: 'Sender does not have enough balance' });
+    }
+
+    // Bakiye transferi
+    sender.balance -= amount;
+    receiver.balance += amount;
+
+    await sender.save();
+    await receiver.save();
+
+    res.json({ message: 'Balance transferred successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'An error occurred during the transfer' });
+  }
+});
+
+
 passport.use(
   new LocalStrategy(
     {usernameField: 'username'},
