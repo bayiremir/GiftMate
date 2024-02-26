@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Provider, useDispatch, useSelector} from 'react-redux';
 import {store} from './src/redux/store';
-import {AuthNavigator, TabNavigator} from './Navigator';
+import {AppNavigator, AuthNavigator, TabNavigator} from './Navigator';
 import {storage} from './src/utils/storage';
 import {setIsLogin} from './src/redux/slices/isLoginSlice';
 
@@ -16,7 +16,7 @@ const App = () => {
   const isLogin = useSelector(state => state.isLoginSlice);
   const isLog = isLogin.isLogin;
 
-  return isLog === true ? <TabNavigator /> : <AuthNavigator />;
+  return isLog === true ? <AppNavigator /> : <AuthNavigator />;
 };
 
 const AppContainer = () => (

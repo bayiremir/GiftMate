@@ -39,9 +39,10 @@ const LoginScreen = () => {
     } else {
       dispatch(setIsLogin(true));
       storage.set('isLogin', true);
+      storage.set('userToken', authContent.token);
     }
   };
-  console.log(authContent);
+  console.log('authContent', authContent);
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);

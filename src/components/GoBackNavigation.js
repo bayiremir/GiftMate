@@ -2,10 +2,14 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {ChevronLeftIcon} from 'react-native-heroicons/solid';
+import {ShoppingBagIcon as ShoppingBagIconOutline} from 'react-native-heroicons/outline';
 import {getStatusBarHeight} from 'react-native-safearea-height';
+import {colors} from '../utils/colors';
+import {useSelector} from 'react-redux';
 
-const BackNavigationBar = () => {
+const BackNavigationBar = ({color, shopping}) => {
   const navigation = useNavigation();
+  const cartItems = useSelector(state => state.cartSlice.items);
 
   return (
     <View style={[styles.container, {marginTop: getStatusBarHeight() + 10}]}>
@@ -16,9 +20,9 @@ const BackNavigationBar = () => {
           width={24}
           height={24}
           style={styles.icon}
-          color={'white'}
+          color={color}
         />
-        <Text style={styles.backtext}>Geri</Text>
+        <Text style={[styles.backtext, {color: color}]}>Geri</Text>
       </TouchableOpacity>
       <View style={styles.logoContainer}>
         <Image
@@ -27,6 +31,21 @@ const BackNavigationBar = () => {
           resizeMode="contain"
         />
       </View>
+      {shopping ? (
+        <TouchableOpacity
+          onPress={() => navigation.navigate('CartScreen')}
+          style={styles.backbutton}>
+          <ShoppingBagIconOutline
+            width={24}
+            height={24}
+            style={{marginRight: 8}}
+            color={color}
+          />
+          <View style={styles.number}>
+            <Text style={styles.numberText}>{cartItems.length}</Text>
+          </View>
+        </TouchableOpacity>
+      ) : null}
     </View>
   );
 };
@@ -37,6 +56,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
     marginVertical: 20,
     paddingHorizontal: 10,
@@ -59,8 +79,23 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   backtext: {
-    color: 'white',
     fontSize: 16,
     fontWeight: '400',
+  },
+  number: {
+    width: 20,
+    height: 20,
+    backgroundColor: colors.lightGreen,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    top: -5,
+    right: -5,
+  },
+  numberText: {
+    color: 'white',
+    fontWeight: '500',
+    fontSize: 12,
   },
 });
