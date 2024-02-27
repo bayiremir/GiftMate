@@ -2,12 +2,23 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
-  username: {type: String, required: true, unique: true},
-  password: {type: String, required: true},
-  balance: {type: Number, default: 30},
-  inventory: [{type: mongoose.Schema.Types.ObjectId, ref: 'Product'}],
-  friendRequests: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
-  friendList: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+  // Your other user schema fields
+  username: String,
+  password: String,
+  balance: Number,
+  friendRequests: [
+    {type: mongoose.Schema.Types.ObjectId, ref: 'User', default: []},
+  ],
+  friendList: [
+    {type: mongoose.Schema.Types.ObjectId, ref: 'User', default: []},
+  ],
+  inventory: [{type: String, default: []}],
+  messages: [
+    {
+      sender: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+      message: String,
+    },
+  ],
 });
 
 userSchema.pre('save', async function (next) {

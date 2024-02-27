@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from './src/screens/core/HomeScreen';
 import ProfileScreen from './src/screens/core/ProfileScreen';
@@ -10,13 +10,15 @@ import {
   HomeIcon as HomeIconSolid,
   UserIcon as UserIconSolid,
 } from 'react-native-heroicons/solid';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from './src/screens/login/LoginScreen';
 import RegisterScreen from './src/screens/login/RegisterScreen';
 import {colors} from './src/utils/colors';
 import GiftScreen from './src/screens/gift/GiftScreen';
 import CartScreen from './src/screens/gift/CartScreen';
+import AddFriendList from './src/screens/other/AddFriendList';
+import SettingScreen from './src/screens/core/SettingScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -59,6 +61,16 @@ export function AppNavigator() {
           component={CartScreen}
           options={{headerShown: false}}
         />
+        <Stack.Screen
+          name="SettingScreen"
+          component={SettingScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="AddFriendList"
+          component={AddFriendList}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -85,7 +97,9 @@ export function TabNavigator() {
         },
         tabBarActiveTintColor: colors.skincolor,
         tabBarInactiveTintColor: colors.skincolor,
-        tabBarStyle: {backgroundColor: colors.darkBlue},
+        tabBarStyle: {
+          backgroundColor: colors.darkBlue,
+        },
       })}>
       <Tab.Screen
         name="Ana Sayfa"

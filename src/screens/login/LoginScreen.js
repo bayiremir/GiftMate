@@ -21,6 +21,7 @@ import {
 } from 'react-native-heroicons/outline';
 import {EyeIcon as EyeIconSolid} from 'react-native-heroicons/solid';
 import {setIsLogin} from '../../redux/slices/isLoginSlice';
+import LottieComponent from '../../components/lottie/LottieComponent';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -32,17 +33,18 @@ const LoginScreen = () => {
     state => state.authSlice,
   );
 
-  const handleLogin = () => {
+  useEffect(() => {
     dispatch(fetchAuth({username, password}));
+  }, [dispatch, username, password]);
+
+  const handleLogin = () => {
     if (authContentLoading) {
-      <Text>Loading...</Text>;
-    } else {
-      dispatch(setIsLogin(true));
+      return <LottieComponent />;
+    } else if (authContent) {
       storage.set('isLogin', true);
-      storage.set('userToken', authContent.token);
+      dispatch(setIsLogin(true));
     }
   };
-  console.log('authContent', authContent);
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);

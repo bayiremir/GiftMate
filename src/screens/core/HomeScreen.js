@@ -1,39 +1,42 @@
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import React, {useEffect} from 'react';
 import {colors} from '../../utils/colors';
 import {storage} from '../../utils/storage';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {setIsLogin} from '../../redux/slices/isLoginSlice';
-import {fetchSendGift} from '../../redux/slices/sendGiftSlice';
+import {fetchProfile} from '../../redux/slices/profileSlice';
+import HomeComp from '../../components/home/HomeComp';
+import {getStatusBarHeight} from 'react-native-safearea-height';
+import {Cog6ToothIcon as Cog6ToothIconOutline} from 'react-native-heroicons/outline';
 import {useNavigation} from '@react-navigation/native';
-
 const HomeScreen = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
-  const handleLeave = () => {
-    dispatch(setIsLogin(false));
-    storage.delete('isLogin');
-  };
+
+  useEffect(() => {
+    dispatch(fetchProfile());
+  }, [dispatch]);
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('GiftScreen', {title: 'Starbucks Coffee'})
-        }>
-        <Image
-          source={require('../../../assets/product/starbucks.png')}
-          style={{
-            width: 100,
-            height: 100,
-            backgroundColor: 'white',
-            borderRadius: 50,
-          }}
+      <View style={styles.secondcontainer}>
+        <View style={styles.rowcontainer}>
+          <Text style={styles.header}>Ana Sayfa</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('SettingScreen')}>
+            <Cog6ToothIconOutline color={colors.white} size={24} />
+          </TouchableOpacity>
+        </View>
+
+        <HomeComp
+          image={require(`../../../assets/product/starbucks.png`)}
+          navigate={'GiftScreen'}
         />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={handleLeave} style={styles.leave}>
-        <Text>Leave</Text>
-      </TouchableOpacity>
+        <HomeComp
+          image={require(`../../../assets/product/mcdonalds.png`)}
+          navigate={'GiftScreen'}
+        />
+      </View>
     </View>
   );
 };
@@ -43,15 +46,21 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: colors.lightBlue,
   },
-  leave: {
-    backgroundColor: colors.skincolor,
-    padding: 10,
-    margin: 10,
-    borderRadius: 5,
+  secondcontainer: {
+    marginTop: getStatusBarHeight(),
+  },
+  header: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: colors.white,
+    marginVertical: 8,
+  },
+  rowcontainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
+    marginHorizontal: 16,
   },
 });

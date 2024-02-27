@@ -92,7 +92,6 @@ app.post('/signup', async (req, res) => {
 // Login route
 app.post('/login', (req, res, next) => {
   passport.authenticate('local', {session: false}, (err, user, info) => {
-    console.log('Login', user, err, info);
     if (err || !user) {
       return res.status(400).json({
         message: info ? info.message : 'Login failed',
@@ -104,7 +103,7 @@ app.post('/login', (req, res, next) => {
         res.send(err);
       }
       const token = jwt.sign(user.toJSON(), 'your_jwt_secret', {
-        expiresIn: '1h',
+        expiresIn: '24h',
       });
       return res.json({user, token});
     });
@@ -126,8 +125,6 @@ app.post(
     const {friendId} = req.body;
     const user = req.user;
 
-    // Öncelikle friendRequests alanının user objesinde olup olmadığını kontrol edin
-    // Yoksa, boş bir dizi olarak başlatın
     user.friendRequests = user.friendRequests || [];
     user.friends = user.friends || [];
 
@@ -198,7 +195,8 @@ app.post(
         return res.status(404).json({message: 'Friend not found'});
       }
 
-      if (!user.friendRequests.includes(friendId)) {
+      // ObjectId'leri string'e çevirerek karşılaştırma
+      if (!user.friendRequests.map(id => id.toString()).includes(friendId)) {
         return res.status(400).json({message: 'No friend request found'});
       }
 
@@ -212,7 +210,7 @@ app.post(
       await user.save();
 
       friend.friendList = friend.friendList || [];
-      friend.friendList.push(user._id);
+      friend.friendList.push(user._id.toString()); // Burada da aynı dönüşümü yapmak iyi bir pratik olabilir
       await friend.save();
 
       res.json({message: 'Friend request accepted successfully'});
@@ -229,7 +227,6 @@ app.post(
   '/purchase',
   passport.authenticate('jwt', {session: false}),
   async (req, res) => {
-    console.log('Purchase and gift');
     const {productId, giftReceiverId, amount} = req.body;
     const buyer = req.user; // JWT'den gelen kullanıcı bilgisi
 
@@ -264,6 +261,58 @@ app.post(
       res.status(500).json({
         message: 'An error occurred during the purchase and gift process',
       });
+    }
+  },
+);
+
+app.post(
+  '/send-message',
+  passport.authenticate('jwt', {session: false}),
+  async (req, res) => {
+    const {receiverId, message} = req.body;
+    const sender = req.user;
+
+    if (!receiverId || !message) {
+      return res.status(400).json({message: 'Missing required fields'});
+    }
+
+    try {
+      const receiver = await User.findById(receiverId);
+      if (!receiver) {
+        return res.status(404).json({message: 'Receiver not found'});
+      }
+
+      receiver.messages.push({
+        sender: sender._id,
+        message,
+      });
+
+      await receiver.save();
+      res.json({message: 'Message sent successfully'});
+    } catch (error) {
+      console.error(error);
+      res
+        .status(500)
+        .json({message: 'An error occurred while sending message'});
+    }
+  },
+);
+
+app.get(
+  '/get-messages',
+  passport.authenticate('jwt', {session: false}),
+  async (req, res) => {
+    const user = req.user;
+    try {
+      const messages = await User.find({_id: {$in: user.friendList}}).populate(
+        'messages.sender',
+      );
+      res.json(messages);
+    } catch (error) {
+      console.error(error);
+      res
+        .status(500)
+        .json({message: 'An error occurred while fetching messages'});
     }
   },
 );

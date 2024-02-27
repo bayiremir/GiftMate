@@ -1,64 +1,45 @@
 import {StyleSheet, Text, Image, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {useDispatch} from 'react-redux';
-import {addItem, removeItem} from '../../redux/slices/cartSlice';
+import {removeItem} from '../../redux/slices/cartSlice';
 import {settings} from '../../utils/settings';
-import {ShoppingBagIcon as ShoppingBagIconSolid} from 'react-native-heroicons/solid';
 
-const CompCoffee = ({item, remove}) => {
+const CompCart = ({item}) => {
   const dispatch = useDispatch();
 
   return (
     <View style={styles.container}>
-      {remove && (
-        <TouchableOpacity
-          style={styles.remove}
-          onPress={() => dispatch(removeItem(item))}>
-          <Image
-            style={styles.icon}
-            source={require('../../../assets/icons/remove.png')}
-          />
-        </TouchableOpacity>
-      )}
+      <TouchableOpacity
+        style={styles.remove}
+        onPress={() => dispatch(removeItem(item))}>
+        <Image
+          style={styles.icon}
+          source={require('../../../assets/icons/remove.png')}
+        />
+      </TouchableOpacity>
       <View style={styles.cart}>
         <Image style={styles.image} source={{uri: item.image_url}} />
         <Text style={styles.title}>{item.name}</Text>
-        {remove ? null : (
-          <Text numberOfLines={2} style={styles.description}>
-            {item.description}
-          </Text>
-        )}
         <View style={styles.addcontainer}>
           <Text style={styles.text}>{item.price} TL</Text>
-          {remove ?? (
-            <TouchableOpacity onPress={() => dispatch(addItem(item))}>
-              <ShoppingBagIconSolid
-                color={'white'}
-                style={[styles.icon, {marginHorizontal: 5}]}
-                size={18}
-              />
-            </TouchableOpacity>
-          )}
         </View>
       </View>
     </View>
   );
 };
 
-export default CompCoffee;
+export default CompCart;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: 'row',
   },
   cart: {
-    width: settings.WIDTH / 2 - 20,
+    width: settings.WIDTH / 2 - 30,
     backgroundColor: 'rgba(0,0,0,0.5)',
     borderRadius: 10,
     justifyContent: 'center',
-    margin: 10,
+    margin: 8,
     padding: 12,
   },
   title: {
@@ -83,7 +64,7 @@ const styles = StyleSheet.create({
   remove: {
     position: 'absolute',
     right: 0,
-    top: 10,
+    top: 0,
     zIndex: 1,
   },
   icon: {

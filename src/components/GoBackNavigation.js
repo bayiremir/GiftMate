@@ -7,7 +7,7 @@ import {getStatusBarHeight} from 'react-native-safearea-height';
 import {colors} from '../utils/colors';
 import {useSelector} from 'react-redux';
 
-const BackNavigationBar = ({color, shopping}) => {
+const BackNavigationBar = ({color, shopping, title}) => {
   const navigation = useNavigation();
   const cartItems = useSelector(state => state.cartSlice.items);
 
@@ -25,11 +25,7 @@ const BackNavigationBar = ({color, shopping}) => {
         <Text style={[styles.backtext, {color: color}]}>Geri</Text>
       </TouchableOpacity>
       <View style={styles.logoContainer}>
-        <Image
-          source={{uri: 'https://i.ibb.co/7zVW9VJ/logo.png'}}
-          style={styles.logo}
-          resizeMode="contain"
-        />
+        <Text style={styles.title}>{title}</Text>
       </View>
       {shopping ? (
         <TouchableOpacity
@@ -59,7 +55,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginVertical: 20,
-    paddingHorizontal: 10,
+    paddingHorizontal: 5,
   },
   logoContainer: {
     flex: 1,
@@ -97,5 +93,10 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: '500',
     fontSize: 12,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: '500',
+    color: 'white',
   },
 });

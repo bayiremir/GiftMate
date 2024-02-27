@@ -6,6 +6,7 @@ import profileSlice from './slices/profileSlice';
 import coffeeSlice from './slices/coffeeSlice';
 import cartSlice from './slices/cartSlice';
 import sendGiftSlice from './slices/sendGiftSlice';
+import requestFriendSlice from './slices/requestFriendSlice';
 
 export const store = configureStore({
   reducer: {
@@ -16,5 +17,6 @@ export const store = configureStore({
     coffeeSlice: coffeeSlice,
     cartSlice: cartSlice,
     sendGiftSlice: sendGiftSlice,
+    requestFriendSlice: requestFriendSlice,
   },
 });

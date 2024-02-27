@@ -1,5 +1,5 @@
 // Inside CartScreen component
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {
   View,
@@ -11,14 +11,14 @@ import {
   Modal,
   TouchableWithoutFeedback,
 } from 'react-native';
-import CompCoffee from '../../components/coffee/CompCoffee';
 import BackNavigationBar from '../../components/GoBackNavigation';
 import {colors} from '../../utils/colors';
-import HeaderComp from '../../components/header/HeaderComp';
 import {fetchSendGift} from '../../redux/slices/sendGiftSlice';
+import CompCart from '../../components/cart/CompCart';
 
 const CartScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [totalPrice, setTotalPrice] = useState(0);
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cartSlice.items);
   const {profileContent} = useSelector(state => state.profileSlice);
@@ -53,7 +53,7 @@ const CartScreen = () => {
                       fetchSendGift({
                         productId: cartItems[0]?._id,
                         giftReceiverId: item,
-                        amount: cartItems[0]?.price,
+                        amount: totalPrice,
                       }),
                       console.log('item', item, cartItems._id, cartItems.price),
                     );
@@ -69,22 +69,28 @@ const CartScreen = () => {
     </Modal>
   );
 
+  useEffect(() => {
+    const plus = cartItems.reduce((acc, item) => acc + item.price, 0);
+    setTotalPrice(plus);
+  }, [cartItems]);
+
   return (
     <View style={styles.container}>
       {modalVisible && handleCart()}
-      <BackNavigationBar color={'white'} shopping={false} />
-      <HeaderComp header={'Sepetim'} />
+      <BackNavigationBar title={'Sepetim'} color={'white'} shopping={false} />
       <FlatList
         data={cartItems}
+        showsVerticalScrollIndicator={false}
         keyExtractor={(item, index) => item + index}
-        contentContainerStyle={{paddingBottom: 50}}
-        renderItem={({item}) => <CompCoffee item={item} remove={true} />}
+        numColumns={2}
+        contentContainerStyle={{paddingBottom: 100}}
+        renderItem={({item}) => <CompCart item={item} remove={true} />}
       />
       {cartItems.length > 0 && (
         <TouchableOpacity
           style={styles.button}
           onPress={() => setModalVisible(true)}>
-          <Text style={styles.text}>Siparişi Tamamla</Text>
+          <Text style={styles.text}>Siparişi Tamamla, {totalPrice} TL</Text>
         </TouchableOpacity>
       )}
     </View>
