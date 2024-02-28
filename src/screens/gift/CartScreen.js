@@ -15,14 +15,25 @@ import BackNavigationBar from '../../components/GoBackNavigation';
 import {colors} from '../../utils/colors';
 import {fetchSendGift} from '../../redux/slices/sendGiftSlice';
 import CompCart from '../../components/cart/CompCart';
+import LottieComponent from '../../components/lottie/LottieComponent';
+import {fetchFriends} from '../../redux/slices/myFriendSlice';
 
 const CartScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cartSlice.items);
-  const {profileContent} = useSelector(state => state.profileSlice);
-  const friendList = profileContent?.friendList;
+  const {friendsContent, friendsContentLoading} = useSelector(
+    state => state.myFriendSlice,
+  );
+
+  useEffect(() => {
+    dispatch(fetchFriends());
+  }, [dispatch]);
+  console.log('cartItems', cartItems);
+  const {giftContent, giftContentLoading, error} = useSelector(
+    state => state.sendGiftSlice,
+  );
 
   const handleCart = () => (
     <Modal
@@ -39,27 +50,26 @@ const CartScreen = () => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>
-              {friendList
+              {friendsContent.friends.length > 0
                 ? `Arkadaşlarınızdan birine hediye göndermek ister misiniz?`
                 : `Arkadaş listenizde kimse bulunmamaktadır.`}
             </Text>
             <FlatList
-              data={friendList}
+              data={friendsContent.friends}
               keyExtractor={(item, index) => item + index}
               renderItem={({item}) => (
                 <TouchableOpacity
                   onPress={() => {
                     dispatch(
                       fetchSendGift({
-                        productId: cartItems[0]?._id,
+                        productName: cartItems[0]?.name, // Ürün adını göndermek için değişiklik
                         giftReceiverId: item,
                         amount: totalPrice,
                       }),
-                      console.log('item', item, cartItems._id, cartItems.price),
                     );
                     setModalVisible(false);
                   }}>
-                  <Text style={styles.modalText}>{item}</Text>
+                  <Text style={styles.modalText}>{item.username}</Text>
                 </TouchableOpacity>
               )}
             />
@@ -78,20 +88,26 @@ const CartScreen = () => {
     <View style={styles.container}>
       {modalVisible && handleCart()}
       <BackNavigationBar title={'Sepetim'} color={'white'} shopping={false} />
-      <FlatList
-        data={cartItems}
-        showsVerticalScrollIndicator={false}
-        keyExtractor={(item, index) => item + index}
-        numColumns={2}
-        contentContainerStyle={{paddingBottom: 100}}
-        renderItem={({item}) => <CompCart item={item} remove={true} />}
-      />
-      {cartItems.length > 0 && (
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => setModalVisible(true)}>
-          <Text style={styles.text}>Siparişi Tamamla, {totalPrice} TL</Text>
-        </TouchableOpacity>
+      {giftContentLoading ? (
+        <LottieComponent />
+      ) : (
+        <>
+          <FlatList
+            data={cartItems}
+            showsVerticalScrollIndicator={false}
+            keyExtractor={(item, index) => item + index}
+            numColumns={2}
+            contentContainerStyle={{paddingBottom: 100}}
+            renderItem={({item}) => <CompCart item={item} remove={true} />}
+          />
+          {cartItems.length > 0 && (
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => setModalVisible(true)}>
+              <Text style={styles.text}>Siparişi Tamamla, {totalPrice} TL</Text>
+            </TouchableOpacity>
+          )}
+        </>
       )}
     </View>
   );

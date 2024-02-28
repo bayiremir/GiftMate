@@ -3,7 +3,7 @@ import {storage} from '../../utils/storage';
 
 export const fetchSendGift = createAsyncThunk(
   'userData/fetchSendGift',
-  async ({productId, giftReceiverId, amount}, {rejectWithValue}) => {
+  async ({productName, giftReceiverId, amount}, {rejectWithValue}) => {
     try {
       const response = await fetch('http://localhost:3000/purchase', {
         method: 'POST',
@@ -13,7 +13,7 @@ export const fetchSendGift = createAsyncThunk(
           Authorization: `Bearer ${storage.getString('userToken')}`,
         },
         body: JSON.stringify({
-          productId,
+          productName,
           giftReceiverId,
           amount,
         }),

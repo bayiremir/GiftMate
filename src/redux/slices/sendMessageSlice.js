@@ -5,7 +5,7 @@ export const fetchSendMessage = createAsyncThunk(
   'userData/fetchSendMessage',
   async ({receiverId, message}, {rejectWithValue}) => {
     try {
-      const response = await fetch('http://localhost:3000/purchase', {
+      const response = await fetch('http://localhost:3000/send-message', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -31,21 +31,21 @@ export const fetchSendMessage = createAsyncThunk(
 const sendMessageSlice = createSlice({
   name: 'sendMessageSlice',
   initialState: {
-    messageLoading: false,
-    message: null,
+    sendMessageLoading: false,
+    sendMessage: null,
     error: null,
   },
   extraReducers: builder => {
     builder
       .addCase(fetchSendMessage.pending, state => {
-        state.messageLoading = true;
+        state.sendMessageLoading = true;
       })
       .addCase(fetchSendMessage.fulfilled, (state, action) => {
-        state.messageLoading = false;
-        state.message = action.payload;
+        state.sendMessageLoading = false;
+        state.sendMessage = action.payload;
       })
       .addCase(fetchSendMessage.rejected, (state, action) => {
-        state.messageLoading = false;
+        state.sendMessageLoading = false;
         state.error = action.payload;
       });
   },

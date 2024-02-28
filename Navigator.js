@@ -1,27 +1,34 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from './src/screens/core/HomeScreen';
 import ProfileScreen from './src/screens/core/ProfileScreen';
-import {
-  HomeIcon as HomeIconOutline,
-  UserIcon as UserIconOutline,
-} from 'react-native-heroicons/outline';
-import {
-  HomeIcon as HomeIconSolid,
-  UserIcon as UserIconSolid,
-} from 'react-native-heroicons/solid';
-import {NavigationContainer, useNavigation} from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from './src/screens/login/LoginScreen';
 import RegisterScreen from './src/screens/login/RegisterScreen';
-import {colors} from './src/utils/colors';
 import GiftScreen from './src/screens/gift/GiftScreen';
 import CartScreen from './src/screens/gift/CartScreen';
-import AddFriendList from './src/screens/other/AddFriendList';
 import SettingScreen from './src/screens/core/SettingScreen';
+import InventoryGift from './src/screens/other/InventoryGift';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import MyFriendList from './src/screens/other/MyFriendList';
+import MessageScreen from './src/screens/other/MessageScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
+const MaterialTopTab = createMaterialTopTabNavigator();
+
+export function TopTabNavigator() {
+  return (
+    <NavigationContainer independent={true}>
+      <MaterialTopTab.Navigator>
+        <MaterialTopTab.Screen name="GiftScreen" component={GiftScreen} />
+        <MaterialTopTab.Screen name="InventoryGift" component={InventoryGift} />
+        <MaterialTopTab.Screen name="MyFriendList" component={MyFriendList} />
+      </MaterialTopTab.Navigator>
+    </NavigationContainer>
+  );
+}
 
 export function AuthNavigator() {
   return (
@@ -47,8 +54,8 @@ export function AppNavigator() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="TabNavigator"
-          component={TabNavigator}
+          name="HomeScreen"
+          component={HomeScreen}
           options={{headerShown: false}}
         />
         <Stack.Screen
@@ -67,50 +74,26 @@ export function AppNavigator() {
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="AddFriendList"
-          component={AddFriendList}
+          name="ProfileScreen"
+          component={ProfileScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="InventoryGift"
+          component={InventoryGift}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="MyFriendList"
+          component={MyFriendList}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="MessageScreen"
+          component={MessageScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>
-  );
-}
-
-export function TabNavigator() {
-  return (
-    <Tab.Navigator
-      screenOptions={({route}) => ({
-        tabBarIcon: ({focused, color}) => {
-          if (route.name === 'Ana Sayfa') {
-            return focused ? (
-              <HomeIconSolid color={color} size={24} />
-            ) : (
-              <HomeIconOutline color={color} size={24} />
-            );
-          } else if (route.name === 'Arkadaş Listesi') {
-            return focused ? (
-              <UserIconSolid color={color} size={24} />
-            ) : (
-              <UserIconOutline color={color} size={24} />
-            );
-          }
-        },
-        tabBarActiveTintColor: colors.skincolor,
-        tabBarInactiveTintColor: colors.skincolor,
-        tabBarStyle: {
-          backgroundColor: colors.darkBlue,
-        },
-      })}>
-      <Tab.Screen
-        name="Ana Sayfa"
-        component={HomeScreen}
-        options={{headerShown: false}}
-      />
-      <Tab.Screen
-        name="Arkadaş Listesi"
-        component={ProfileScreen}
-        options={{headerShown: false}}
-      />
-    </Tab.Navigator>
   );
 }

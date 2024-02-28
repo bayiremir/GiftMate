@@ -1,18 +1,19 @@
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import React, {useEffect} from 'react';
 import {colors} from '../../utils/colors';
-import {storage} from '../../utils/storage';
-import {useDispatch} from 'react-redux';
-import {setIsLogin} from '../../redux/slices/isLoginSlice';
+import {useDispatch, useSelector} from 'react-redux';
 import {fetchProfile} from '../../redux/slices/profileSlice';
 import HomeComp from '../../components/home/HomeComp';
 import {getStatusBarHeight} from 'react-native-safearea-height';
 import {Cog6ToothIcon as Cog6ToothIconOutline} from 'react-native-heroicons/outline';
 import {useNavigation} from '@react-navigation/native';
+
 const HomeScreen = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
-
+  const {profileContent, profileContentLoading, error} = useSelector(
+    state => state.profileSlice,
+  );
   useEffect(() => {
     dispatch(fetchProfile());
   }, [dispatch]);

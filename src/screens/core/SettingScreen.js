@@ -8,6 +8,7 @@ import {
   ArrowDownOnSquareIcon as ArrowDownOnSquareIconSolid,
   UserGroupIcon as UserGroupIconSolid,
   ChatBubbleBottomCenterTextIcon as ChatBubbleBottomCenterTextIconSolid,
+  GiftIcon as GiftIconSolid,
 } from 'react-native-heroicons/solid';
 import {useSelector} from 'react-redux';
 
@@ -28,9 +29,10 @@ const SettingScreen = () => {
             />
           }
           title={'Profil'}
-          navigate={'AddFriendList'}
+          navigate={'ProfileScreen'}
         />
         <Text style={styles.header}>Arkadaş Listem</Text>
+
         <SettingComp
           icon={
             <UserGroupIconSolid
@@ -40,7 +42,7 @@ const SettingScreen = () => {
             />
           }
           title={'Arkadaşlarım'}
-          navigate={'AddFriendList'}
+          navigate={'MyFriendList'}
         />
         <SettingComp
           icon={
@@ -51,21 +53,33 @@ const SettingScreen = () => {
             />
           }
           title={'Mesajlarım'}
-          navigate={'AddFriendList'}
+          navigate={'MessageScreen'}
         />
-        {isLogin && (
-          <SettingComp
-            icon={
-              <ArrowDownOnSquareIconSolid
-                color={colors.darkBlue}
-                size={20}
-                style={styles.icon}
-              />
-            }
-            title={'Çıkış'}
-            quit={true}
-          />
-        )}
+        <Text style={styles.header}>Hediye</Text>
+        <SettingComp
+          icon={
+            <GiftIconSolid
+              color={colors.darkBlue}
+              size={20}
+              style={styles.icon}
+            />
+          }
+          title={'Hediyelerim'}
+          navigate={'InventoryGift'}
+        />
+
+        <Text style={styles.header}>Çıkış</Text>
+        <SettingComp
+          icon={
+            <ArrowDownOnSquareIconSolid
+              color={colors.darkBlue}
+              size={20}
+              style={styles.icon}
+            />
+          }
+          title={'Çıkış'}
+          quit={true}
+        />
       </ScrollView>
     </View>
   );

@@ -32,7 +32,7 @@ export default SettingComp;
 
 const styles = StyleSheet.create({
   secondContainer: {
-    marginVertical: 5,
+    marginVertical: 4,
     marginHorizontal: 10,
     borderRadius: 10,
     backgroundColor: colors.skincolor,

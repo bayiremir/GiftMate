@@ -43,6 +43,7 @@ const LoginScreen = () => {
     } else if (authContent) {
       storage.set('isLogin', true);
       dispatch(setIsLogin(true));
+      console.log('Login Success', authContent);
     }
   };
 
