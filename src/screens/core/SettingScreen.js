@@ -90,7 +90,7 @@ export default SettingScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.mostdarkBlue,
+    backgroundColor: colors.lightBlue,
   },
   icon: {
     marginRight: 8,

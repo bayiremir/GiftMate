@@ -1,11 +1,12 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {storage} from '../../utils/storage';
+import {SEND_MESSAGE} from '@env';
 
 export const fetchSendMessage = createAsyncThunk(
   'userData/fetchSendMessage',
-  async ({receiverId, message}, {rejectWithValue}) => {
+  async ({receiverId, content}, {rejectWithValue}) => {
     try {
-      const response = await fetch('http://localhost:3000/send-message', {
+      const response = await fetch(SEND_MESSAGE, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -13,8 +14,9 @@ export const fetchSendMessage = createAsyncThunk(
           Authorization: `Bearer ${storage.getString('userToken')}`,
         },
         body: JSON.stringify({
-          receiverId,
-          message,
+          sender: storage.getString('userId'),
+          receiverId: receiverId,
+          content: content,
         }),
       });
       const data = await response.json();

@@ -6,6 +6,7 @@ import LottieComponent from '../../components/lottie/LottieComponent';
 import {getStatusBarHeight} from 'react-native-safearea-height';
 import {fetchProfile} from '../../redux/slices/profileSlice';
 import BackNavigationBar from '../../components/GoBackNavigation';
+import {fetchAuth} from '../../redux/slices/authSlice';
 
 const ProfileScreen = () => {
   const dispatch = useDispatch();

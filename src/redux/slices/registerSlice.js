@@ -1,11 +1,12 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {storage} from '../../utils/storage';
+import {REGISTER} from '@env';
 
 export const fetchRegister = createAsyncThunk(
   'userData/fetchRegister',
   async ({username, password}, {rejectWithValue}) => {
     try {
-      const response = await fetch('http://localhost:3000/signup', {
+      const response = await fetch(REGISTER, {
         method: 'POST',
         headers: {
           Accept: 'application/json',

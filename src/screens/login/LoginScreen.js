@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchAuth} from '../../redux/slices/authSlice';
 import {colors} from '../../utils/colors';
@@ -21,7 +21,6 @@ import {
 } from 'react-native-heroicons/outline';
 import {EyeIcon as EyeIconSolid} from 'react-native-heroicons/solid';
 import {setIsLogin} from '../../redux/slices/isLoginSlice';
-import LottieComponent from '../../components/lottie/LottieComponent';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -32,19 +31,13 @@ const LoginScreen = () => {
   const {authContent, authContentLoading, error} = useSelector(
     state => state.authSlice,
   );
-
-  useEffect(() => {
-    dispatch(fetchAuth({username, password}));
-  }, [dispatch, username, password]);
+  console.log(error);
 
   const handleLogin = () => {
-    if (authContentLoading) {
-      return <LottieComponent />;
-    } else if (authContent) {
-      storage.set('isLogin', true);
-      dispatch(setIsLogin(true));
-      console.log('Login Success', authContent);
-    }
+    dispatch(fetchAuth({username, password}));
+    storage.set('isLogin', true);
+    dispatch(setIsLogin(true));
+    console.log('Login Success', authContent);
   };
 
   const handleShowPassword = () => {

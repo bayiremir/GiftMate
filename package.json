@@ -21,7 +21,7 @@
     "lottie-react-native": "^6.6.0",
     "react": "18.2.0",
     "react-native": "0.73.4",
-    "react-native-dotenv": "^3.4.10",
+    "react-native-dotenv": "^3.4.11",
     "react-native-heroicons": "^4.0.0",
     "react-native-mmkv": "^2.12.1",
     "react-native-pager-view": "^6.2.3",

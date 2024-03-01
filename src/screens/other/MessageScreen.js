@@ -1,4 +1,11 @@
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  RefreshControl,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import BackNavigationBar from '../../components/GoBackNavigation';
 import {colors} from '../../utils/colors';
@@ -6,7 +13,8 @@ import {fetchGetMessage} from '../../redux/slices/getMessageSlice';
 import {useDispatch, useSelector} from 'react-redux';
 import LottieComponent from '../../components/lottie/LottieComponent';
 import {io} from 'socket.io-client';
-const socket = io('http://127.0.0.1:3000');
+import {useNavigation} from '@react-navigation/native';
+const socket = io('http://10.0.73.31:3000');
 
 const MessageScreen = () => {
   const [filteredMessages, setFilteredMessages] = useState([]);
@@ -14,23 +22,18 @@ const MessageScreen = () => {
   const {getMessage, getMessageLoading} = useSelector(
     state => state.getMessageSlice,
   );
+  const navigation = useNavigation();
+
+  const onRefresh = () => {
+    dispatch(fetchGetMessage());
+  };
 
   useEffect(() => {
-    console.log('fetchGetMessage dispatch ediliyor.');
     dispatch(fetchGetMessage());
   }, [dispatch]);
 
   useEffect(() => {
-    socket.on('connect', () => {
-      console.log('Socket.IO ile sunucuya bağlandı.');
-    });
-
-    socket.on('receiveMessage', newMessage => {
-      console.log('Alınan mesaj:', newMessage);
-    });
-
     return () => {
-      console.log('Socket.IO bağlantısı kesiliyor.');
       socket.off('connect');
       socket.off('receiveMessage');
     };
@@ -39,7 +42,6 @@ const MessageScreen = () => {
   useEffect(() => {
     const receiveMessageListener = newMessage => {
       setFilteredMessages(prevMessages => {
-        // Yeni mesajın göndericisinin _id'sini ve varsa username'ini al
         const newMessageSenderId =
           typeof newMessage.sender === 'object'
             ? newMessage.sender._id
@@ -56,24 +58,20 @@ const MessageScreen = () => {
 
         let updatedMessages = [...prevMessages];
         if (messageIndex >= 0) {
-          // Eğer mesaj zaten varsa, güncelle
           updatedMessages[messageIndex] = {
             ...updatedMessages[messageIndex],
             ...newMessage,
             sender: {
-              // Gönderici bilgisini güncelle
               _id: newMessageSenderId,
-              username: newMessageSenderUsername, // Username bilgisini koru
+              username: newMessageSenderUsername,
             },
           };
         } else {
-          // Eğer mesaj yoksa, yeni mesajı listeye ekle
           updatedMessages.push({
             ...newMessage,
             sender: {
-              // Gönderici bilgisini düzenle
               _id: newMessageSenderId,
-              username: newMessageSenderUsername, // Username ekle
+              username: newMessageSenderUsername,
             },
           });
         }
@@ -96,21 +94,24 @@ const MessageScreen = () => {
 
   useEffect(() => {
     if (!getMessageLoading && getMessage && getMessage.length > 0) {
-      const latestMessages = getMessage.reduce((acc, message) => {
-        const senderId = message.sender._id;
-        // Eğer bu göndericiden bir mesaj zaten varsa ve bu mesaj daha yeni ise, güncelle
+      const groupedMessages = getMessage.reduce((acc, message) => {
+        // Gönderici ve alıcı ID'lerini alfabetik sıraya göre birleştirerek benzersiz bir anahtar oluştur
+        const participants = [message.sender._id, message.receiver._id].sort();
+        const key = participants.join('-');
+
+        // Bu anahtara sahip en son mesajı sakla
         if (
-          !acc[senderId] ||
-          new Date(acc[senderId].createdAt) < new Date(message.createdAt)
+          !acc[key] ||
+          new Date(acc[key].createdAt) < new Date(message.createdAt)
         ) {
-          acc[senderId] = message;
+          acc[key] = message;
         }
         return acc;
       }, {});
 
-      setFilteredMessages(Object.values(latestMessages));
+      setFilteredMessages(Object.values(groupedMessages));
     }
-  }, [getMessageLoading, getMessage]);
+  }, [getMessage, getMessageLoading]);
 
   return (
     <View style={styles.container}>
@@ -121,12 +122,27 @@ const MessageScreen = () => {
         <FlatList
           data={filteredMessages}
           extraData={filteredMessages}
-          keyExtractor={item => item._id.toString()} // Anahtar olarak _id kullanın ve string olmasına
+          refreshControl={
+            onRefresh && (
+              <RefreshControl
+                colors={[colors.darkBlue]}
+                refreshing={getMessageLoading}
+                onRefresh={onRefresh}
+              />
+            )
+          }
+          keyExtractor={item => item._id.toString()}
           renderItem={({item}) => (
-            <View style={styles.messageContainer}>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate('ChatScreen', {
+                  user: item.sender,
+                })
+              }
+              style={styles.messageContainer}>
               <Text style={styles.senderUsername}>{item.sender.username}</Text>
               <Text style={styles.messageText}>{item.content}</Text>
-            </View>
+            </TouchableOpacity>
           )}
         />
       )}

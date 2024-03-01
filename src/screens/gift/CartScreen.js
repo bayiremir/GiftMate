@@ -17,23 +17,20 @@ import {fetchSendGift} from '../../redux/slices/sendGiftSlice';
 import CompCart from '../../components/cart/CompCart';
 import LottieComponent from '../../components/lottie/LottieComponent';
 import {fetchFriends} from '../../redux/slices/myFriendSlice';
+import {fetchCartItems} from '../../redux/slices/cartSlice';
 
 const CartScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cartSlice.items);
-  const {friendsContent, friendsContentLoading} = useSelector(
-    state => state.myFriendSlice,
-  );
+  const {friendsContent} = useSelector(state => state.myFriendSlice);
+  const {giftContentLoading} = useSelector(state => state.sendGiftSlice);
 
   useEffect(() => {
     dispatch(fetchFriends());
+    dispatch(fetchCartItems());
   }, [dispatch]);
-  console.log('cartItems', cartItems);
-  const {giftContent, giftContentLoading, error} = useSelector(
-    state => state.sendGiftSlice,
-  );
 
   const handleCart = () => (
     <Modal

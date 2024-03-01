@@ -7,6 +7,7 @@ import BackNavigationBar from '../../components/GoBackNavigation';
 import {fetchRequestFriend} from '../../redux/slices/requestFriendSlice';
 import {fetchFriends} from '../../redux/slices/myFriendSlice';
 import {fetchAcceptFriend} from '../../redux/slices/acceptFriendRequestSlice';
+import {PlusCircleIcon as PlusCircleIconSolid} from 'react-native-heroicons/solid';
 
 const MyFriendList = () => {
   const dispatch = useDispatch();
@@ -62,8 +63,20 @@ const MyFriendList = () => {
           keyExtractor={(item, index) => `${selectedTab}-${index}`}
           renderItem={({item}) => (
             <View style={styles.bigContainer}>
-              <TouchableOpacity onPress={() => handleAcceptFriend(item._id)}>
+              <TouchableOpacity
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  marginHorizontal: 10,
+                }}
+                onPress={() =>
+                  selectedTab === 'sent' && handleAcceptFriend(item._id)
+                }>
                 <Text style={styles.itemText}>{item.username}</Text>
+                {selectedTab === 'sent' && (
+                  <PlusCircleIconSolid color={colors.skincolor} size={30} />
+                )}
               </TouchableOpacity>
             </View>
           )}

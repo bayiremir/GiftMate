@@ -10,7 +10,7 @@ const ExtractJwt = require('passport-jwt').ExtractJwt;
 
 const app = express();
 const port = 3000;
-const server = http.createServer(app); // HTTP sunucusunu oluştur
+const server = http.createServer(app);
 const io = require('socket.io')(server, {
   cors: {
     origin: 'http://localhost:3000',
@@ -19,8 +19,6 @@ const io = require('socket.io')(server, {
     credentials: true,
   },
 });
-const cors = require('cors');
-app.use(cors());
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -39,9 +37,10 @@ io.on('connection', socket => {
   });
 });
 
-server.listen(port, () => {
-  console.log(`Server ${port} portunda çalışıyor.`);
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`);
 });
+
 const jwt = require('jsonwebtoken');
 
 const opts = {};
@@ -115,23 +114,15 @@ app.post('/signup', async (req, res) => {
 });
 
 // Login route
-app.post('/login', (req, res, next) => {
+app.post('/login', async (req, res, next) => {
   passport.authenticate('local', {session: false}, (err, user, info) => {
-    if (err || !user) {
-      return res.status(400).json({
-        message: info ? info.message : 'Login failed',
-        user: user,
-      });
-    }
-    req.login(user, {session: false}, err => {
-      if (err) {
-        res.send(err);
-      }
-      const token = jwt.sign(user.toJSON(), 'your_jwt_secret', {
-        expiresIn: '24h',
-      });
+    if (err) return next(err);
+    if (user) {
+      const token = jwt.sign(user.toJSON(), opts.secretOrKey);
       return res.json({user, token});
-    });
+    } else {
+      return res.status(422).json(info);
+    }
   })(req, res, next);
 });
 
@@ -369,9 +360,10 @@ app.get(
 
     try {
       const messages = await Message.find({
-        receiver: user._id,
-        read: false,
-      }).populate('sender', 'username');
+        $or: [{receiver: user._id}, {sender: user._id}],
+      })
+        .populate('sender', 'username')
+        .populate('receiver', 'username');
       res.json(messages);
     } catch (error) {
       console.error(error);
@@ -381,8 +373,6 @@ app.get(
     }
   },
 );
-
-// Bu endpoint'i kullanarak mesajları alabilirsiniz
 
 // Bu endpoint'i kullanarak envanteri alabilirsiniz
 app.get(
@@ -420,6 +410,30 @@ app.get(
       res
         .status(500)
         .json({message: 'An error occurred while fetching received gifts'});
+    }
+  },
+);
+
+app.get(
+  '/get-user',
+  passport.authenticate('jwt', {session: false}),
+  async (req, res) => {
+    res.json(req.user);
+  },
+);
+
+app.get(
+  '/get-store-products',
+  passport.authenticate('jwt', {session: false}),
+  async (req, res) => {
+    try {
+      const products = await Product.find();
+      res.json(products);
+    } catch (error) {
+      console.error(error);
+      res
+        .status(500)
+        .json({message: 'An error occurred while fetching store products'});
     }
   },
 );

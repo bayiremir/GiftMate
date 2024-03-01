@@ -13,6 +13,7 @@ import InventoryGift from './src/screens/other/InventoryGift';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import MyFriendList from './src/screens/other/MyFriendList';
 import MessageScreen from './src/screens/other/MessageScreen';
+import ChatScreen from './src/screens/other/ChatScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -91,6 +92,11 @@ export function AppNavigator() {
         <Stack.Screen
           name="MessageScreen"
           component={MessageScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="ChatScreen"
+          component={ChatScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

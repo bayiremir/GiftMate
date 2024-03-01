@@ -1,15 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {ChevronLeftIcon} from 'react-native-heroicons/solid';
 import {ShoppingBagIcon as ShoppingBagIconOutline} from 'react-native-heroicons/outline';
 import {getStatusBarHeight} from 'react-native-safearea-height';
 import {colors} from '../utils/colors';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchCartItems} from '../redux/slices/cartSlice';
 
 const BackNavigationBar = ({color, shopping, title}) => {
   const navigation = useNavigation();
   const cartItems = useSelector(state => state.cartSlice.items);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCartItems());
+  }, [dispatch]);
 
   return (
     <View style={[styles.container, {marginTop: getStatusBarHeight() + 10}]}>
@@ -73,6 +79,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     zIndex: 1,
+    marginRight: 8,
   },
   backtext: {
     fontSize: 16,

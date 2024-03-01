@@ -1,11 +1,12 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {storage} from '../../utils/storage';
+import {SENT_GIFTS} from '@env';
 
 export const fetchMySendGift = createAsyncThunk(
   'userData/fetchMySendGift',
   async (_, {rejectWithValue}) => {
     try {
-      const response = await fetch('http://localhost:3000/sent-gifts', {
+      const response = await fetch(SENT_GIFTS, {
         method: 'GET',
         headers: {
           Accept: 'application/json',

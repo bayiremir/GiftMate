@@ -1,11 +1,12 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {storage} from '../../utils/storage';
+import {PROFILE} from '@env';
 
 export const fetchProfile = createAsyncThunk(
   'userData/fetchProfile',
   async (_, {rejectWithValue}) => {
     try {
-      const response = await fetch('http://localhost:3000/profile', {
+      const response = await fetch(PROFILE, {
         method: 'GET',
         headers: {
           Accept: 'application/json',

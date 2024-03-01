@@ -9,18 +9,13 @@ import {fetchReceiverGifts} from '../../redux/slices/receiverGiftSlice';
 import {fetchMySendGift} from '../../redux/slices/mySendGiftSlice';
 
 const InventoryGift = () => {
-  const {inventory, inventoryLoading, error} = useSelector(
-    state => state.giftSlice,
-  );
-  const {received, receivedLoading} = useSelector(
-    state => state.receiverGiftSlice,
-  );
-  const {mySendGift, mySendGiftLoading} = useSelector(
-    state => state.mySendGiftSlice,
-  );
+  const {inventoryLoading} = useSelector(state => state.giftSlice);
+  const {received} = useSelector(state => state.receiverGiftSlice);
+  const {mySendGift} = useSelector(state => state.mySendGiftSlice);
   const [selectedTab, setSelectedTab] = useState('received');
   const dispatch = useDispatch();
 
+  console.log('mysendgift', mySendGift);
   useEffect(() => {
     dispatch(fetchInventory());
     dispatch(fetchReceiverGifts());

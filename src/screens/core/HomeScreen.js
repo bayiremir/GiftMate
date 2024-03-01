@@ -7,6 +7,7 @@ import HomeComp from '../../components/home/HomeComp';
 import {getStatusBarHeight} from 'react-native-safearea-height';
 import {Cog6ToothIcon as Cog6ToothIconOutline} from 'react-native-heroicons/outline';
 import {useNavigation} from '@react-navigation/native';
+import LottieComponent from '../../components/lottie/LottieComponent';
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -20,24 +21,27 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.secondcontainer}>
-        <View style={styles.rowcontainer}>
-          <Text style={styles.header}>Ana Sayfa</Text>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('SettingScreen')}>
-            <Cog6ToothIconOutline color={colors.white} size={24} />
-          </TouchableOpacity>
-        </View>
+      {profileContentLoading ? (
+        <LottieComponent />
+      ) : (
+        <View style={styles.secondcontainer}>
+          <View style={styles.rowcontainer}>
+            <Text style={styles.header}>Ana Sayfa</Text>
+            <Text style={styles.header}>
+              Hoşgeldin {profileContent?.username}
+            </Text>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('SettingScreen')}>
+              <Cog6ToothIconOutline color={colors.white} size={24} />
+            </TouchableOpacity>
+          </View>
 
-        <HomeComp
-          image={require(`../../../assets/product/starbucks.png`)}
-          navigate={'GiftScreen'}
-        />
-        <HomeComp
-          image={require(`../../../assets/product/mcdonalds.png`)}
-          navigate={'GiftScreen'}
-        />
-      </View>
+          <HomeComp
+            image={require(`../../../assets/product/starbucks.png`)}
+            navigate={'GiftScreen'}
+          />
+        </View>
+      )}
     </View>
   );
 };
@@ -62,6 +66,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginHorizontal: 16,
+    marginHorizontal: 8,
   },
 });

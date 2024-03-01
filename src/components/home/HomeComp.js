@@ -9,10 +9,10 @@ const HomeComp = ({navigate, image}) => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.secondcontainer}>
+    <View style={styles.container}>
       <TouchableOpacity
         onPress={() => navigation.navigate(navigate)}
-        style={styles.secondCont}>
+        style={styles.row}>
         <Image source={image} style={styles.icon} />
       </TouchableOpacity>
     </View>
@@ -22,12 +22,11 @@ const HomeComp = ({navigate, image}) => {
 export default HomeComp;
 
 const styles = StyleSheet.create({
-  secondcontainer: {
+  container: {
     marginHorizontal: 15,
     marginVertical: 5,
-    justifyContent: 'space-between',
   },
-  secondCont: {
+  row: {
     borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
@@ -36,6 +35,7 @@ const styles = StyleSheet.create({
   icon: {
     width: 100,
     height: 100,
-    resizeMode: 'contain',
+    backgroundColor: 'white',
+    borderRadius: 50,
   },
 });

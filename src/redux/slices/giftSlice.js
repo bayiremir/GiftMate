@@ -1,11 +1,12 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {storage} from '../../utils/storage';
+import {GET_INVENTORY} from '@env';
 
 export const fetchInventory = createAsyncThunk(
   'userData/fetchInventory',
   async (_, {rejectWithValue}) => {
     try {
-      const response = await fetch('http://localhost:3000/get-inventory', {
+      const response = await fetch(GET_INVENTORY, {
         method: 'GET',
         headers: {
           Accept: 'application/json',

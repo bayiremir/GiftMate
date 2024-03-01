@@ -1,11 +1,12 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {storage} from '../../utils/storage';
+import {MESSAGES} from '@env';
 
 export const fetchGetMessage = createAsyncThunk(
   'userData/fetchGetMessage',
   async (_, {rejectWithValue}) => {
     try {
-      const response = await fetch('http://localhost:3000/messages', {
+      const response = await fetch(MESSAGES, {
         method: 'GET',
         headers: {
           Accept: 'application/json',

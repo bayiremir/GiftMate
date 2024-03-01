@@ -1,11 +1,12 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {storage} from '../../utils/storage';
+import {LOGIN} from '@env';
 
 export const fetchAuth = createAsyncThunk(
   'userData/fetchAuth',
   async ({username, password}, {rejectWithValue}) => {
     try {
-      const response = await fetch('http://localhost:3000/login', {
+      const response = await fetch(LOGIN, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -17,6 +18,7 @@ export const fetchAuth = createAsyncThunk(
         }),
       });
       const data = await response.json();
+      console.log(data);
       if (!response.ok) {
         return rejectWithValue(data.error || 'Something went wrong');
       }
@@ -45,6 +47,7 @@ const authSlice = createSlice({
       .addCase(fetchAuth.fulfilled, (state, action) => {
         state.authContentLoading = false;
         state.authContent = action.payload;
+        console.log('Login Success action', action.payload);
       })
       .addCase(fetchAuth.rejected, (state, action) => {
         state.authContentLoading = false;
