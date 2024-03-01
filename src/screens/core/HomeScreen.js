@@ -1,5 +1,13 @@
-import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
-import React, {useEffect} from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  RefreshControl,
+  Image,
+} from 'react-native';
+import React, {useCallback, useEffect, useState} from 'react';
 import {colors} from '../../utils/colors';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchProfile} from '../../redux/slices/profileSlice';
@@ -10,39 +18,50 @@ import {useNavigation} from '@react-navigation/native';
 import LottieComponent from '../../components/lottie/LottieComponent';
 
 const HomeScreen = () => {
+  const [refreshing, setRefreshing] = useState(false);
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const {profileContent, profileContentLoading, error} = useSelector(
     state => state.profileSlice,
   );
+
   useEffect(() => {
     dispatch(fetchProfile());
   }, [dispatch]);
 
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    dispatch(fetchProfile());
+    setRefreshing(false);
+  }, [dispatch]);
   return (
-    <View style={styles.container}>
+    <ScrollView
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }
+      style={styles.container}>
       {profileContentLoading ? (
         <LottieComponent />
       ) : (
         <View style={styles.secondcontainer}>
           <View style={styles.rowcontainer}>
-            <Text style={styles.header}>Ana Sayfa</Text>
-            <Text style={styles.header}>
-              Hoşgeldin {profileContent?.username}
-            </Text>
+            <Image
+              source={require('../../../assets/appicon/greenlogo.png')}
+              style={{width: 100, height: 50}}
+            />
+
             <TouchableOpacity
               onPress={() => navigation.navigate('SettingScreen')}>
               <Cog6ToothIconOutline color={colors.white} size={24} />
             </TouchableOpacity>
           </View>
-
           <HomeComp
             image={require(`../../../assets/product/starbucks.png`)}
             navigate={'GiftScreen'}
           />
         </View>
       )}
-    </View>
+    </ScrollView>
   );
 };
 
@@ -51,7 +70,7 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.lightBlue,
+    backgroundColor: colors.primarycolor,
   },
   secondcontainer: {
     marginTop: getStatusBarHeight(),

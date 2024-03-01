@@ -18,7 +18,6 @@ export const fetchAuth = createAsyncThunk(
         }),
       });
       const data = await response.json();
-      console.log(data);
       if (!response.ok) {
         return rejectWithValue(data.error || 'Something went wrong');
       }
@@ -47,7 +46,6 @@ const authSlice = createSlice({
       .addCase(fetchAuth.fulfilled, (state, action) => {
         state.authContentLoading = false;
         state.authContent = action.payload;
-        console.log('Login Success action', action.payload);
       })
       .addCase(fetchAuth.rejected, (state, action) => {
         state.authContentLoading = false;

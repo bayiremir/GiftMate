@@ -17,7 +17,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {fetchGetMessage} from '../../redux/slices/getMessageSlice';
 import {fetchSendMessage} from '../../redux/slices/sendMessageSlice';
 
-const socket = io('http://10.0.73.31:3000');
+const socket = io('https://emag.uskudar.dev');
 
 const ChatScreen = ({route}) => {
   const [messages, setMessages] = useState([]);
@@ -25,7 +25,6 @@ const ChatScreen = ({route}) => {
   const insets = useSafeAreaInsets();
   const flatListRef = useRef(null);
   const dispatch = useDispatch();
-
   const selectedUser = route.params.user;
 
   const {profileContent, profileContentLoading} = useSelector(

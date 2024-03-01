@@ -27,6 +27,7 @@ const CartScreen = () => {
   const {friendsContent} = useSelector(state => state.myFriendSlice);
   const {giftContentLoading} = useSelector(state => state.sendGiftSlice);
 
+  console.log('cartItems', cartItems);
   useEffect(() => {
     dispatch(fetchFriends());
     dispatch(fetchCartItems());

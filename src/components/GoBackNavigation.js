@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   title: {
-    fontSize: 20,
+    fontSize: 14,
     fontWeight: '500',
     color: 'white',
   },

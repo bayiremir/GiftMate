@@ -23,8 +23,6 @@ const MyFriendList = () => {
     state => state.acceptFriendRequestSlice,
   );
 
-  console.log('requestFriend', error);
-
   const handleAcceptFriend = _id => {
     dispatch(fetchAcceptFriend({friendId: _id}));
   };

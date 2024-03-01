@@ -19,6 +19,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {fetchRegister} from '../../redux/slices/registerSlice';
 import GoBackNavigation from '../../components/GoBackNavigation';
 import {getStatusBarHeight} from 'react-native-safearea-height';
+import LottieComponent from '../../components/lottie/LottieComponent';
 
 const RegisterScreen = () => {
   const navigation = useNavigation();
@@ -26,18 +27,13 @@ const RegisterScreen = () => {
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
 
-  const {registerContent, registerContentLoading, error} = useSelector(
-    state => state.registerSlice,
-  );
-
-  console.log(registerContent);
+  const {registerContentLoading} = useSelector(state => state.registerSlice);
 
   const handleRegister = () => {
     dispatch(fetchRegister({username, password}));
     if (registerContentLoading) {
-      <Text>Loading...</Text>;
+      <LottieComponent />;
     } else {
-      console.log('Register successful');
       navigation.navigate('LoginScreen');
     }
   };

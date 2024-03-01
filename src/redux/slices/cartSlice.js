@@ -1,4 +1,4 @@
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+import {createSlice, createAsyncThunk, nanoid} from '@reduxjs/toolkit';
 import {storage} from '../../utils/storage';
 
 export const fetchCartItems = createAsyncThunk(
@@ -21,12 +21,20 @@ const cartSlice = createSlice({
   name: 'cartSlice',
   initialState,
   reducers: {
-    addItem: (state, action) => {
-      state.items.push(action.payload);
-      storage.set('cart', JSON.stringify(state.items));
+    addItem: {
+      reducer(state, action) {
+        state.items.push(action.payload);
+        storage.set('cart', JSON.stringify(state.items));
+      },
+      prepare(item) {
+        // Her ürüne benzersiz bir clientId atayarak hazırlayın
+        return {payload: {...item, clientId: nanoid()}};
+      },
     },
     removeItem: (state, action) => {
-      state.items = state.items.filter(item => item.id !== action.payload.id);
+      state.items = state.items.filter(
+        item => item.clientId !== action.payload.clientId,
+      );
       storage.set('cart', JSON.stringify(state.items));
     },
   },

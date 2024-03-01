@@ -15,7 +15,6 @@ const InventoryGift = () => {
   const [selectedTab, setSelectedTab] = useState('received');
   const dispatch = useDispatch();
 
-  console.log('mysendgift', mySendGift);
   useEffect(() => {
     dispatch(fetchInventory());
     dispatch(fetchReceiverGifts());

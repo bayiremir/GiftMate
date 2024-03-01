@@ -31,13 +31,11 @@ const LoginScreen = () => {
   const {authContent, authContentLoading, error} = useSelector(
     state => state.authSlice,
   );
-  console.log(error);
 
   const handleLogin = () => {
     dispatch(fetchAuth({username, password}));
     storage.set('isLogin', true);
     dispatch(setIsLogin(true));
-    console.log('Login Success', authContent);
   };
 
   const handleShowPassword = () => {

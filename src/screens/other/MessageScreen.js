@@ -14,7 +14,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import LottieComponent from '../../components/lottie/LottieComponent';
 import {io} from 'socket.io-client';
 import {useNavigation} from '@react-navigation/native';
-const socket = io('http://10.0.73.31:3000');
+const socket = io('https://emag.uskudar.dev');
 
 const MessageScreen = () => {
   const [filteredMessages, setFilteredMessages] = useState([]);

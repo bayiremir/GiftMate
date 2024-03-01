@@ -22,11 +22,7 @@ const SettingScreen = () => {
         <Text style={styles.header}>Profil</Text>
         <SettingComp
           icon={
-            <UserIconSolid
-              color={colors.darkBlue}
-              size={20}
-              style={styles.icon}
-            />
+            <UserIconSolid color={colors.white} size={20} style={styles.icon} />
           }
           title={'Profil'}
           navigate={'ProfileScreen'}
@@ -36,7 +32,7 @@ const SettingScreen = () => {
         <SettingComp
           icon={
             <UserGroupIconSolid
-              color={colors.darkBlue}
+              color={colors.white}
               size={20}
               style={styles.icon}
             />
@@ -47,7 +43,7 @@ const SettingScreen = () => {
         <SettingComp
           icon={
             <ChatBubbleBottomCenterTextIconSolid
-              color={colors.darkBlue}
+              color={colors.white}
               size={20}
               style={styles.icon}
             />
@@ -58,11 +54,7 @@ const SettingScreen = () => {
         <Text style={styles.header}>Hediye</Text>
         <SettingComp
           icon={
-            <GiftIconSolid
-              color={colors.darkBlue}
-              size={20}
-              style={styles.icon}
-            />
+            <GiftIconSolid color={colors.white} size={20} style={styles.icon} />
           }
           title={'Hediyelerim'}
           navigate={'InventoryGift'}
@@ -72,7 +64,7 @@ const SettingScreen = () => {
         <SettingComp
           icon={
             <ArrowDownOnSquareIconSolid
-              color={colors.darkBlue}
+              color={colors.white}
               size={20}
               style={styles.icon}
             />
@@ -90,7 +82,7 @@ export default SettingScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.lightBlue,
+    backgroundColor: colors.primarycolor,
   },
   icon: {
     marginRight: 8,
