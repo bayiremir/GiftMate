@@ -7,6 +7,26 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
+const multer = require('multer');
+const {v2: cloudinary} = require('cloudinary');
+const {CloudinaryStorage} = require('multer-storage-cloudinary');
+
+cloudinary.config({
+  cloud_name: 'dcrwlwdla',
+  api_key: '514124218632943',
+  api_secret: 'lSq91YpolMN0tB95NKoC_o4bX3Y',
+});
+
+// Cloudinary Storage ayarları
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  folder: 'profile_photos', // Cloudinary'de saklanacak klasör
+  allowedFormats: ['jpg', 'png'],
+  transformation: [{width: 500, height: 500, crop: 'limit'}],
+});
+
+// Multer'ı Cloudinary storage ile kullanma
+const upload = multer({storage: storage});
 
 const app = express();
 const port = 3000;
@@ -434,6 +454,33 @@ app.get(
       res
         .status(500)
         .json({message: 'An error occurred while fetching store products'});
+    }
+  },
+);
+
+app.post(
+  '/upload-profile-photo',
+  passport.authenticate('jwt', {session: false}),
+  upload.single('photo'),
+  async (req, res) => {
+    if (req.file) {
+      const user = req.user;
+      try {
+        user.profilePicture = req.file.path; // Cloudinary tarafından döndürülen dosya URL'sini kullanıcıya kaydet
+        await user.save();
+        res.json({
+          message: 'Profile photo uploaded successfully',
+          photoUrl: req.file.path,
+        });
+      } catch (error) {
+        console.error(error);
+        res
+          .status(500)
+          .json({message: 'An error occurred while uploading profile photo'});
+      }
+    } else {
+      // Dosya yüklenmediyse hata mesajı döndür
+      res.status(400).json({message: 'No file uploaded'});
     }
   },
 );

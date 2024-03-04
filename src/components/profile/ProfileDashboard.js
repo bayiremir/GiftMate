@@ -3,9 +3,10 @@ import React from 'react';
 import {settings} from '../../utils/settings';
 
 const ProfileDashboard = ({balance}) => {
+  const floatBalance = parseFloat(balance).toFixed(2);
   return (
     <View>
-      <Text style={styles.header}>Dashboard</Text>
+      <Text style={styles.header}>Gösterge Tablosu</Text>
       <View style={styles.dashboard}>
         <View style={styles.rowContainer}>
           <Image
@@ -16,11 +17,11 @@ const ProfileDashboard = ({balance}) => {
           <View>
             <View style={styles.infoContainer}>
               <Text style={styles.balanceText}>Cüzdan</Text>
-              <Text style={styles.balance}>{balance}</Text>
+              <Text style={styles.balance}>{floatBalance} ₺</Text>
             </View>
             <View style={styles.infoContainer}>
               <Text style={styles.balanceText}>Harcama Limiti</Text>
-              <Text style={styles.balance}>100</Text>
+              <Text style={styles.balance}>100 ₺</Text>
             </View>
           </View>
         </View>

@@ -3,11 +3,11 @@ import {
   View,
   Image,
   Text,
-  ScrollView,
   RefreshControl,
   FlatList,
+  TouchableOpacity,
 } from 'react-native';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {colors} from '../../utils/colors';
 import {useDispatch, useSelector} from 'react-redux';
 import LottieComponent from '../../components/lottie/LottieComponent';
@@ -18,8 +18,12 @@ import RewardDashboard from '../../components/profile/RewardDashboard';
 import HistoryDashboard from '../../components/profile/HistoryDashboard';
 import {fetchMySendGift} from '../../redux/slices/mySendGiftSlice';
 import {fetchReceiverGifts} from '../../redux/slices/receiverGiftSlice';
+import {fetchProfilePhoto} from '../../redux/slices/uploadPictureSlice';
+import {launchImageLibrary} from 'react-native-image-picker';
+import {storage} from '../../utils/storage';
 
 const ProfileScreen = () => {
+  const [profilePicture, setProfilePicture] = useState(null);
   const dispatch = useDispatch();
   const {received, receivedLoading} = useSelector(
     state => state.receiverGiftSlice,
@@ -30,8 +34,19 @@ const ProfileScreen = () => {
   const {profileContent, profileContentLoading} = useSelector(
     state => state.profileSlice,
   );
-  console.log('received', received);
-  console.log('mySendGift', mySendGift);
+
+  const {photoUrl, uploading} = useSelector(state => state.uploadPictureSlice);
+
+  useEffect(() => {
+    if (storage.getString('profilePicture') === null) {
+      setProfilePicture(
+        'https://www.iosapptemplates.com/wp-content/uploads/2019/06/empty-avatar.jpg',
+      );
+    } else {
+      photo = storage.getString('profilePicture');
+      setProfilePicture(photo);
+    }
+  }, []);
 
   useEffect(() => {
     dispatch(fetchProfile());
@@ -39,32 +54,61 @@ const ProfileScreen = () => {
     dispatch(fetchMySendGift());
   }, [dispatch]);
 
+  const selectPhotoTapped = () => {
+    const options = {
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+    };
+
+    launchImageLibrary(options, response => {
+      if (response.didCancel) {
+        console.log('User cancelled photo picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else {
+        const source = {uri: response.assets[0].uri};
+        setProfilePicture(source.uri);
+        dispatch(fetchProfilePhoto(response.assets[0]));
+        console.log(photoUrl, 'photoUrl');
+        storage.set('profilePicture', photoUrl);
+      }
+    });
+  };
+
   const combinedGifts = [
-    ...received?.map(item => ({...item, type: 'received'})),
-    ...mySendGift?.map(item => ({...item, type: 'sent'})),
+    ...(received ?? []).map(item => ({...item, type: 'received'})),
+    ...(mySendGift ?? []).map(item => ({...item, type: 'sent'})),
   ];
 
   const renderHeader = () => (
     <View style={{}}>
       <View style={{alignItems: 'center'}}>
-        <Image
-          source={{
-            uri: 'https://cdn.evrimagaci.org/q0-4ffcpiHlsmEHyfYCcYQBWPNg=/storage.evrimagaci.org%2Fold%2Fmi_media%2Fafcae823e61eefb077e1f223594b1e7f.jpeg',
-          }}
-          style={styles.image}
-        />
+        {uploading ? (
+          <LottieComponent />
+        ) : (
+          <TouchableOpacity onPress={selectPhotoTapped}>
+            <Image
+              source={{
+                uri: profilePicture,
+              }}
+              style={styles.image}
+            />
+          </TouchableOpacity>
+        )}
         <Text style={styles.username}>{profileContent?.username}</Text>
         <ProfileDashboard balance={profileContent.balance} />
         <RewardDashboard />
       </View>
-      <Text style={styles.header}>History</Text>
+      <Text style={styles.header}>Geçmiş Ödemeler</Text>
     </View>
   );
 
   return (
     <View style={styles.container}>
       <BackNavigationBar title={'My Profile'} color={colors.white} />
-      {profileContentLoading && mySendGiftLoading && receivedLoading ? (
+      {profileContentLoading || mySendGiftLoading || receivedLoading ? (
         <LottieComponent />
       ) : (
         <FlatList

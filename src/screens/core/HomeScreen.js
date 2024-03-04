@@ -16,16 +16,17 @@ import {getStatusBarHeight} from 'react-native-safearea-height';
 import {Cog6ToothIcon as Cog6ToothIconOutline} from 'react-native-heroicons/outline';
 import {useNavigation} from '@react-navigation/native';
 import LottieComponent from '../../components/lottie/LottieComponent';
+import {fetchAuth} from '../../redux/slices/authSlice';
 
 const HomeScreen = () => {
   const [refreshing, setRefreshing] = useState(false);
   const dispatch = useDispatch();
   const navigation = useNavigation();
-  const {profileContent, profileContentLoading, error} = useSelector(
-    state => state.profileSlice,
-  );
+  const {profileContentLoading} = useSelector(state => state.profileSlice);
+  const {authContent} = useSelector(state => state.authSlice);
 
   useEffect(() => {
+    dispatch(fetchAuth());
     dispatch(fetchProfile());
   }, [dispatch]);
 
@@ -34,6 +35,7 @@ const HomeScreen = () => {
     dispatch(fetchProfile());
     setRefreshing(false);
   }, [dispatch]);
+
   return (
     <ScrollView
       refreshControl={
@@ -85,6 +87,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginHorizontal: 8,
+    marginHorizontal: 12,
   },
 });

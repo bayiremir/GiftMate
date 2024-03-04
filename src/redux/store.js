@@ -14,6 +14,7 @@ import myFriendSlice from './slices/myFriendSlice';
 import acceptFriendRequestSlice from './slices/acceptFriendRequestSlice';
 import getMessageSlice from './slices/getMessageSlice';
 import sendMessageSlice from './slices/sendMessageSlice';
+import uploadPictureSlice from './slices/uploadPictureSlice';
 
 export const store = configureStore({
   reducer: {
@@ -32,5 +33,6 @@ export const store = configureStore({
     acceptFriendRequestSlice: acceptFriendRequestSlice,
     getMessageSlice: getMessageSlice,
     sendMessageSlice: sendMessageSlice,
+    uploadPictureSlice: uploadPictureSlice,
   },
 });

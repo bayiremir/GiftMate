@@ -8,9 +8,11 @@ import {fetchRequestFriend} from '../../redux/slices/requestFriendSlice';
 import {fetchFriends} from '../../redux/slices/myFriendSlice';
 import {fetchAcceptFriend} from '../../redux/slices/acceptFriendRequestSlice';
 import {PlusCircleIcon as PlusCircleIconSolid} from 'react-native-heroicons/solid';
+import {useNavigation} from '@react-navigation/native';
 
 const MyFriendList = () => {
   const dispatch = useDispatch();
+  const navigation = useNavigation();
   const [selectedTab, setSelectedTab] = useState('received');
 
   const {requestFriend, requestFriendLoading} = useSelector(
@@ -69,7 +71,11 @@ const MyFriendList = () => {
                   marginHorizontal: 10,
                 }}
                 onPress={() =>
-                  selectedTab === 'sent' && handleAcceptFriend(item._id)
+                  (selectedTab === 'sent' && handleAcceptFriend(item._id)) ||
+                  (selectedTab === 'received' &&
+                    navigation.navigate('ChatScreen', {
+                      user: item.sender,
+                    }))
                 }>
                 <Text style={styles.itemText}>{item.username}</Text>
                 {selectedTab === 'sent' && (
@@ -89,7 +95,7 @@ export default MyFriendList;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.darkBlue,
+    backgroundColor: colors.primarycolor,
   },
   tabContainer: {
     flexDirection: 'row',

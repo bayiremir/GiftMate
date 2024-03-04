@@ -29,7 +29,7 @@ const receiverGiftSlice = createSlice({
   name: 'receiverGiftSlice',
   initialState: {
     receivedLoading: false,
-    received: null,
+    received: [],
     error: null,
   },
   extraReducers: builder => {

@@ -20,6 +20,7 @@ const userSchema = new mongoose.Schema({
     },
   ],
   inventory: [{type: String, default: []}],
+  profilePicture: {type: String, default: ''},
 });
 
 userSchema.pre('save', async function (next) {

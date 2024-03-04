@@ -76,7 +76,7 @@ export default InventoryGift;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.darkBlue,
+    backgroundColor: colors.primarycolor,
   },
   tabContainer: {
     flexDirection: 'row',

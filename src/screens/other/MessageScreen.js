@@ -155,10 +155,10 @@ export default MessageScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.lightBlue,
+    backgroundColor: colors.primarycolor,
   },
   messageContainer: {
-    backgroundColor: colors.skincolor,
+    backgroundColor: '#d9d9d9',
     marginHorizontal: 15,
     borderRadius: 15,
     padding: 12,
