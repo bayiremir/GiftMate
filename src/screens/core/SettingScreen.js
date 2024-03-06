@@ -9,12 +9,10 @@ import {
   UserGroupIcon as UserGroupIconSolid,
   ChatBubbleBottomCenterTextIcon as ChatBubbleBottomCenterTextIconSolid,
   GiftIcon as GiftIconSolid,
+  TicketIcon as TicketIconSolid,
 } from 'react-native-heroicons/solid';
-import {useSelector} from 'react-redux';
 
 const SettingScreen = () => {
-  const {isLogin} = useSelector(state => state.isLoginSlice);
-
   return (
     <View style={styles.container}>
       <BackNavigationBar title={'Ayarlar'} color={colors.white} />
@@ -59,7 +57,18 @@ const SettingScreen = () => {
           title={'Hediyelerim'}
           navigate={'InventoryGift'}
         />
-
+        <Text style={styles.header}>Kupon</Text>
+        <SettingComp
+          icon={
+            <TicketIconSolid
+              color={colors.white}
+              size={20}
+              style={styles.icon}
+            />
+          }
+          title={'Kuponlarım'}
+          navigate={'TicketScreen'}
+        />
         <Text style={styles.header}>Çıkış</Text>
         <SettingComp
           icon={

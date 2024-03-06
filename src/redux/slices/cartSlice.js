@@ -27,7 +27,6 @@ const cartSlice = createSlice({
         storage.set('cart', JSON.stringify(state.items));
       },
       prepare(item) {
-        // Her ürüne benzersiz bir clientId atayarak hazırlayın
         return {payload: {...item, clientId: nanoid()}};
       },
     },

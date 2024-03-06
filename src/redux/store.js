@@ -15,8 +15,15 @@ import acceptFriendRequestSlice from './slices/acceptFriendRequestSlice';
 import getMessageSlice from './slices/getMessageSlice';
 import sendMessageSlice from './slices/sendMessageSlice';
 import uploadPictureSlice from './slices/uploadPictureSlice';
+import brandSlice from './slices/products/brandSlice';
+import resturantSlice from './slices/products/resturantSlice';
 
 export const store = configureStore({
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      immutableCheck: {warnAfter: 500},
+      serializableCheck: {warnAfter: 500},
+    }),
   reducer: {
     authSlice: authSlice,
     registerSlice: registerSlice,
@@ -34,5 +41,7 @@ export const store = configureStore({
     getMessageSlice: getMessageSlice,
     sendMessageSlice: sendMessageSlice,
     uploadPictureSlice: uploadPictureSlice,
+    brandSlice: brandSlice,
+    resturantSlice: resturantSlice,
   },
 });

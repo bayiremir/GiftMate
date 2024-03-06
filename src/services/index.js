@@ -7,26 +7,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
-const multer = require('multer');
-const {v2: cloudinary} = require('cloudinary');
-const {CloudinaryStorage} = require('multer-storage-cloudinary');
-
-cloudinary.config({
-  cloud_name: 'dcrwlwdla',
-  api_key: '514124218632943',
-  api_secret: 'lSq91YpolMN0tB95NKoC_o4bX3Y',
-});
-
-// Cloudinary Storage ayarları
-const storage = new CloudinaryStorage({
-  cloudinary: cloudinary,
-  folder: 'profile_photos', // Cloudinary'de saklanacak klasör
-  allowedFormats: ['jpg', 'png'],
-  transformation: [{width: 500, height: 500, crop: 'limit'}],
-});
-
-// Multer'ı Cloudinary storage ile kullanma
-const upload = multer({storage: storage});
+const path = require('path');
 
 const app = express();
 const port = 3000;
@@ -35,11 +16,8 @@ const io = require('socket.io')(server, {
   cors: {
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST'],
-    allowedHeaders: ['my-custom-header'],
-    credentials: true,
   },
 });
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(passport.initialize());
@@ -57,10 +35,9 @@ io.on('connection', socket => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
+server.listen(port, () => {
+  console.log(`Server ${port} portunda çalışıyor.`);
 });
-
 const jwt = require('jsonwebtoken');
 
 const opts = {};
@@ -415,7 +392,6 @@ app.get(
   },
 );
 
-// Bu endpoint'i kullanarak alınan hediyeleri alabilirsiniz
 app.get(
   '/received-gifts',
   passport.authenticate('jwt', {session: false}),
@@ -435,52 +411,21 @@ app.get(
 );
 
 app.get(
-  '/get-user',
-  passport.authenticate('jwt', {session: false}),
-  async (req, res) => {
-    res.json(req.user);
-  },
-);
-
-app.get(
-  '/get-store-products',
+  '/ticket',
   passport.authenticate('jwt', {session: false}),
   async (req, res) => {
     try {
-      const products = await Product.find();
-      res.json(products);
+      const userWithTicket = await User.findById(req.user._id).populate(
+        'ticket',
+      );
+      res.json(userWithTicket.ticket);
     } catch (error) {
       console.error(error);
       res
         .status(500)
-        .json({message: 'An error occurred while fetching store products'});
+        .json({message: 'An error occurred while fetching ticket'});
     }
   },
 );
 
-app.post(
-  '/upload-profile-photo',
-  passport.authenticate('jwt', {session: false}),
-  upload.single('photo'),
-  async (req, res) => {
-    if (req.file) {
-      const user = req.user;
-      try {
-        user.profilePicture = req.file.path; // Cloudinary tarafından döndürülen dosya URL'sini kullanıcıya kaydet
-        await user.save();
-        res.json({
-          message: 'Profile photo uploaded successfully',
-          photoUrl: req.file.path,
-        });
-      } catch (error) {
-        console.error(error);
-        res
-          .status(500)
-          .json({message: 'An error occurred while uploading profile photo'});
-      }
-    } else {
-      // Dosya yüklenmediyse hata mesajı döndür
-      res.status(400).json({message: 'No file uploaded'});
-    }
-  },
-);
+app.use('/public', express.static(path.join(__dirname, 'public')));

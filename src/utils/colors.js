@@ -12,4 +12,5 @@ export const colors = {
   lightGreen: '#ADBC9F',
   skincolor: '#FBFADA',
   mostdarkGreen: '#344955',
+  yemekred: '#EC004C',
 };

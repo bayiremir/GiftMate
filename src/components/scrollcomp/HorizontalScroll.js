@@ -1,38 +1,21 @@
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {ScrollView, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {settings} from '../../utils/settings';
-import {ChevronDownIcon as ChevronDownIconSolid} from 'react-native-heroicons/solid';
 
-const HorizontalScroll = ({title1, title2, title3, length}) => {
+const HorizontalScroll = ({categories, onPressCategory}) => {
   return (
-    <View>
-      <ScrollView horizontal={true} style={styles.rowcontainer}>
-        <TouchableOpacity>
-          <Text style={styles.text}>{title1}</Text>
+    <ScrollView
+      showsHorizontalScrollIndicator={false}
+      horizontal={true}
+      style={styles.rowcontainer}>
+      {categories.map((category, index) => (
+        <TouchableOpacity
+          key={category.id}
+          onPress={() => onPressCategory(index)}>
+          <Text style={styles.text}>{category.name}</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={styles.text}>{title2}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={styles.text}>{title3}</Text>
-        </TouchableOpacity>
-      </ScrollView>
-      <View style={styles.productContainer}>
-        <Text style={styles.productLength}>Ürün Sayısı: {length}</Text>
-        <TouchableOpacity style={{flexDirection: 'row'}}>
-          <Text style={[styles.productLength, {fontWeight: 'bold'}]}>
-            Popüler
-          </Text>
-          <ChevronDownIconSolid style={styles.icon} color={'white'} size={18} />
-        </TouchableOpacity>
-      </View>
-    </View>
+      ))}
+    </ScrollView>
   );
 };
 

@@ -6,7 +6,8 @@ import {settings} from '../../utils/settings';
 
 const CompCart = ({item}) => {
   const dispatch = useDispatch();
-
+  const price = item.product_variations?.[0]?.price || 'Fiyat bilgisi yok';
+  const floatPrice = parseFloat(price).toFixed(2);
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -18,10 +19,10 @@ const CompCart = ({item}) => {
         />
       </TouchableOpacity>
       <View style={styles.cart}>
-        <Image style={styles.image} source={{uri: item.image_url}} />
+        <Image style={styles.image} source={{uri: item.file_path}} />
         <Text style={styles.title}>{item.name}</Text>
         <View style={styles.addcontainer}>
-          <Text style={styles.text}>{item.price} TL</Text>
+          <Text style={styles.text}>{floatPrice} TL</Text>
         </View>
       </View>
     </View>
@@ -46,6 +47,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
     color: 'white',
+    marginVertical: 8,
   },
   text: {
     fontSize: 16,
@@ -60,6 +62,7 @@ const styles = StyleSheet.create({
   image: {
     width: settings.WIDTH / 2 - 50,
     height: settings.HEIGHT / 5,
+    borderRadius: 20,
   },
   remove: {
     position: 'absolute',

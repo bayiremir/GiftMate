@@ -8,7 +8,7 @@ import {colors} from '../utils/colors';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchCartItems} from '../redux/slices/cartSlice';
 
-const BackNavigationBar = ({color, shopping, title}) => {
+const BackNavigationBar = ({color, shopping, title, minimum_order_amount}) => {
   const navigation = useNavigation();
   const cartItems = useSelector(state => state.cartSlice.items);
   const dispatch = useDispatch();
@@ -35,7 +35,11 @@ const BackNavigationBar = ({color, shopping, title}) => {
       </View>
       {shopping ? (
         <TouchableOpacity
-          onPress={() => navigation.navigate('CartScreen')}
+          onPress={() =>
+            navigation.navigate('CartScreen', {
+              minOrder: minimum_order_amount,
+            })
+          }
           style={styles.backbutton}>
           <ShoppingBagIconOutline
             width={24}

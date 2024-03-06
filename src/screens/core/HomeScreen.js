@@ -1,72 +1,88 @@
-import {
-  StyleSheet,
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  RefreshControl,
-  Image,
-} from 'react-native';
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
+import {SectionList, StyleSheet, Text, View} from 'react-native';
 import {colors} from '../../utils/colors';
+import {fetchResturantData} from '../../redux/slices/products/resturantSlice';
 import {useDispatch, useSelector} from 'react-redux';
-import {fetchProfile} from '../../redux/slices/profileSlice';
-import HomeComp from '../../components/home/HomeComp';
+import Campains from '../../components/home/Campains';
+import PopularResturants from '../../components/home/PopularResturants';
+import AllResturants from '../../components/home/AllResturants';
 import {getStatusBarHeight} from 'react-native-safearea-height';
-import {Cog6ToothIcon as Cog6ToothIconOutline} from 'react-native-heroicons/outline';
-import {useNavigation} from '@react-navigation/native';
 import LottieComponent from '../../components/lottie/LottieComponent';
-import {fetchAuth} from '../../redux/slices/authSlice';
+import Profile from '../../components/home/Profile';
+import {fetchProfile} from '../../redux/slices/profileSlice';
 
 const HomeScreen = () => {
-  const [refreshing, setRefreshing] = useState(false);
   const dispatch = useDispatch();
-  const navigation = useNavigation();
-  const {profileContentLoading} = useSelector(state => state.profileSlice);
-  const {authContent} = useSelector(state => state.authSlice);
+  const {resturantData, resturantDataLoading} = useSelector(
+    state => state.resturantSlice,
+  );
+  const {profileContent, profileContentLoading} = useSelector(
+    state => state.profileSlice,
+  );
 
   useEffect(() => {
-    dispatch(fetchAuth());
     dispatch(fetchProfile());
+    dispatch(fetchResturantData());
   }, [dispatch]);
 
-  const onRefresh = useCallback(() => {
-    setRefreshing(true);
-    dispatch(fetchProfile());
-    setRefreshing(false);
-  }, [dispatch]);
+  const renderItem = ({item, section}) => {
+    switch (section.type) {
+      case 'campaigns':
+        return <Campains item={item} loading={resturantDataLoading} />;
+      case 'popular':
+        return <PopularResturants item={item} loading={resturantDataLoading} />;
+      case 'all':
+        return <AllResturants item={item} loading={resturantDataLoading} />;
+      default:
+        return null;
+    }
+  };
+
+  const campaignsData = resturantData?.[0]?.data?.rlp?.carousels?.data[0]
+    ?.campaigns
+    ? [resturantData[0].data.rlp.carousels.data[0].campaigns]
+    : [];
+  const popularData = resturantData?.[0]?.data?.rlp?.swimlanes?.data?.items[4]
+    ? [resturantData[0].data.rlp.swimlanes.data.items[4]]
+    : [];
+  const allData = resturantData?.[0]?.data?.rlp?.organic_listing?.views[0]
+    ?.items
+    ? [resturantData[0].data.rlp.organic_listing.views[0].items]
+    : [];
+
+  const sections = [
+    {
+      data: campaignsData,
+      type: 'campaigns',
+    },
+    {
+      data: popularData,
+      type: 'popular',
+    },
+    {
+      data: allData,
+      type: 'all',
+    },
+  ];
 
   return (
-    <ScrollView
-      refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-      }
-      style={styles.container}>
-      {profileContentLoading ? (
+    <View style={styles.container}>
+      {resturantDataLoading && !resturantData ? (
         <LottieComponent />
       ) : (
-        <View style={styles.secondcontainer}>
-          <View style={styles.rowcontainer}>
-            <Image
-              source={require('../../../assets/appicon/greenlogo.png')}
-              style={{width: 100, height: 50}}
-            />
-
-            <TouchableOpacity
-              onPress={() => navigation.navigate('SettingScreen')}>
-              <Cog6ToothIconOutline color={colors.white} size={24} />
-            </TouchableOpacity>
-          </View>
-          <HomeComp
-            image={require(`../../../assets/product/starbucks.png`)}
-            navigate={'GiftScreen'}
+        <View style={styles.bigContainer}>
+          <Profile item={profileContent} />
+          <SectionList
+            sections={sections}
+            keyExtractor={(item, index) => item + index}
+            renderItem={renderItem}
+            contentContainerStyle={styles.sectionListContent}
           />
         </View>
       )}
-    </ScrollView>
+    </View>
   );
 };
-
 export default HomeScreen;
 
 const styles = StyleSheet.create({
@@ -74,19 +90,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.primarycolor,
   },
-  secondcontainer: {
+  bigContainer: {
+    flex: 1,
     marginTop: getStatusBarHeight(),
-  },
-  header: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: colors.white,
-    marginVertical: 8,
-  },
-  rowcontainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginHorizontal: 12,
   },
 });

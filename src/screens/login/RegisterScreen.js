@@ -17,7 +17,6 @@ import {
 } from 'react-native-heroicons/solid';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchRegister} from '../../redux/slices/registerSlice';
-import GoBackNavigation from '../../components/GoBackNavigation';
 import {getStatusBarHeight} from 'react-native-safearea-height';
 import LottieComponent from '../../components/lottie/LottieComponent';
 

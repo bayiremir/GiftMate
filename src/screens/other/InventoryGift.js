@@ -14,12 +14,21 @@ const InventoryGift = () => {
   const {mySendGift} = useSelector(state => state.mySendGiftSlice);
   const [selectedTab, setSelectedTab] = useState('received');
   const dispatch = useDispatch();
+  const [sortedGifts, setSortedGifts] = useState([]);
 
   useEffect(() => {
     dispatch(fetchInventory());
     dispatch(fetchReceiverGifts());
     dispatch(fetchMySendGift());
   }, []);
+
+  useEffect(() => {
+    const gifts = selectedTab === 'received' ? received : mySendGift;
+    const sorted = gifts
+      .slice()
+      .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    setSortedGifts(sorted);
+  }, [received, mySendGift, selectedTab]);
 
   const fixDate = date => {
     const newDate = new Date(date);
@@ -52,7 +61,7 @@ const InventoryGift = () => {
         <LottieComponent />
       ) : (
         <FlatList
-          data={selectedTab === 'received' ? received : mySendGift}
+          data={sortedGifts}
           keyExtractor={(item, index) => `${selectedTab}-${index}`}
           renderItem={({item}) => (
             <View style={styles.bigContainer}>

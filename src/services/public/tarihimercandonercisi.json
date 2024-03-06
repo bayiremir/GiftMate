@@ -1,0 +1,3050 @@
+[
+  {
+    "status_code": 200,
+    "data": {
+      "chain": {
+        "id": 0,
+        "name": "",
+        "main_vendor_id": 0,
+        "url_key": "",
+        "code": ""
+      },
+      "city": {
+        "id": 34,
+        "name": "Istanbul",
+        "url_key": "istanbul"
+      },
+      "customer_phone": "+902165192620",
+      "id": 74574,
+      "code": "jn6g",
+      "accepts_instructions": true,
+      "address": "Fahrettin Kerim Gökay Cad. No:102 Kadıköy",
+      "address_line2": "",
+      "budget": 2,
+      "deals": [
+        {
+          "id": 7272839,
+          "code": "7272839",
+          "offer_type": "composite",
+          "type": "discount",
+          "voucher_type": "",
+          "minimum_order_value": 0,
+          "maximum_discount_amount": 0,
+          "value": 0,
+          "title": "%10 İndirim",
+          "description": "İndirimli lezzetleri kaçırma!",
+          "start_date": "2023-07-17T00:00:00+03:00",
+          "end_date": "2032-07-06T00:00:00+03:00",
+          "is_pro": false,
+          "is_new_customer": false,
+          "seq_priority": 1000,
+          "additional_info": {
+            "should_override": ["dps"],
+            "calculation": {
+              "baseOn": null
+            }
+          },
+          "tc": [
+            "Teslimat için geçerlidir.",
+            "Ek Aydınlatma Metni geçerli olabilir"
+          ],
+          "action": {
+            "type": "",
+            "name": "",
+            "description": ""
+          },
+          "source": "incentives",
+          "conditions": [
+            {
+              "discount_type": "percentage",
+              "discount_amount": 10,
+              "condition_type": "product",
+              "condition_object_array": [37138657],
+              "condition_object_names": [
+                "Coca-Cola Fırsatı (Pilav Üstü Et Döner)"
+              ]
+            }
+          ],
+          "quantity": 0,
+          "used_quantity": 0,
+          "is_full_basket_applicable": false,
+          "construct_id": "",
+          "is_bogo": false
+        }
+      ],
+      "constraints": [],
+      "cuisines": [
+        {
+          "id": 1064,
+          "name": "Döner",
+          "url_key": "doner",
+          "main": true
+        },
+        {
+          "id": 1071,
+          "name": "Kebap & Türk Mutfağı",
+          "url_key": "kebap-and-turk-mutfagi",
+          "main": false
+        }
+      ],
+      "delivery_duration_range": {
+        "lower_limit_in_minutes": 45,
+        "upper_limit_in_minutes": 65
+      },
+      "delivery_fee_source": "disco",
+      "description": "*Bu restoranın adres ve onaylanmış telefon bilgileri Yemeksepetinde bulunmaktadır.",
+      "discounts": [
+        {
+          "banner_title": "",
+          "bogo_product_blocks": [],
+          "bogo_discount_unit": "",
+          "closing_time": "23:59",
+          "condition_type": "",
+          "condition_object": 0,
+          "condition_object_array": [],
+          "discount_amount": 0,
+          "discount_type": "composite",
+          "conditions": [
+            {
+              "discount_type": "percentage",
+              "discount_amount": 10,
+              "condition_type": "product",
+              "condition_object_array": [37138657],
+              "condition_object_names": null
+            }
+          ],
+          "daily_limit": 0,
+          "description": "İndirimli lezzetleri kaçırma!",
+          "discount_text": "",
+          "end_date": "2032-07-06",
+          "file_name": "",
+          "id": 7272839,
+          "maximum_discount_amount": 0,
+          "minimum_order_value": 0,
+          "name": "%10 İndirim",
+          "opening_time": "00:00",
+          "platform_ratio": 0,
+          "promotional_limit": 0,
+          "start_date": "2023-07-17",
+          "vendor_id": 0,
+          "labels": ["special_menu"],
+          "label_metadata": {
+            "special_menu": {
+              "disco_aggregate": true,
+              "partners": [
+                {
+                  "menu_category_id": "",
+                  "partner_id": "1",
+                  "product_id": "37138657"
+                }
+              ]
+            }
+          },
+          "additional_info": {
+            "calculation": {
+              "baseOn": ["not_child_products"]
+            },
+            "should_override": ["dps"]
+          }
+        }
+      ],
+      "distance": 2.1619062,
+      "experiments": [
+        {
+          "experiment_id": "recommendation-products-elements",
+          "experiment_variation": "Control",
+          "is_participating": false
+        }
+      ],
+      "favorite": null,
+      "has_delivery_provider": false,
+      "hero_image": "https://images.deliveryhero.io/image/fd-tr/LH/jn6g-hero.jpg",
+      "hero_listing_image": "https://images.deliveryhero.io/image/fd-tr/LH/jn6g-listing.jpg",
+      "is_active": true,
+      "is_delivery_enabled": true,
+      "is_pickup_enabled": true,
+      "is_premium": false,
+      "is_preorder_enabled": true,
+      "is_promoted": false,
+      "is_test": false,
+      "is_vat_disabled": false,
+      "is_vat_included_in_product_price": true,
+      "is_vat_visible": false,
+      "is_vat_included": true,
+      "is_voucher_enabled": true,
+      "is_super_vendor": true,
+      "latitude": 40.984931,
+      "location": "",
+      "location_event": null,
+      "logo": "",
+      "longitude": 29.050532,
+      "loyalty_percentage_amount": 0,
+      "loyalty_program_enabled": false,
+      "minimum_delivery_fee": 0,
+      "minimum_delivery_time": 50,
+      "minimum_order_amount": 155,
+      "minimum_pickup_time": 40,
+      "name": "Tarihi Mercan Dönercisi",
+      "original_delivery_fee": 0,
+      "payment_types": [],
+      "post_code": "",
+      "primary_cuisine_id": 1064,
+      "rating": 4.5,
+      "topic_ratings": [
+        {
+          "topic": "rider",
+          "score": 5
+        },
+        {
+          "topic": "delivery_time",
+          "score": 4.5
+        },
+        {
+          "topic": "overall",
+          "score": 4.5
+        },
+        {
+          "topic": "service",
+          "score": 4.5
+        },
+        {
+          "topic": "restaurant_food",
+          "score": 4.5
+        }
+      ],
+      "review_number": 95591,
+      "review_with_comment_number": 0,
+      "schedules": [
+        {
+          "id": 0,
+          "weekday": 1,
+          "opening_type": "delivering",
+          "opening_time": "09:30",
+          "closing_time": "23:30"
+        },
+        {
+          "id": 0,
+          "weekday": 2,
+          "opening_type": "delivering",
+          "opening_time": "09:30",
+          "closing_time": "23:30"
+        },
+        {
+          "id": 0,
+          "weekday": 3,
+          "opening_type": "delivering",
+          "opening_time": "09:30",
+          "closing_time": "23:30"
+        },
+        {
+          "id": 0,
+          "weekday": 4,
+          "opening_type": "delivering",
+          "opening_time": "09:30",
+          "closing_time": "23:30"
+        },
+        {
+          "id": 0,
+          "weekday": 5,
+          "opening_type": "delivering",
+          "opening_time": "09:30",
+          "closing_time": "23:30"
+        },
+        {
+          "id": 0,
+          "weekday": 6,
+          "opening_type": "delivering",
+          "opening_time": "09:30",
+          "closing_time": "23:30"
+        },
+        {
+          "id": 0,
+          "weekday": 7,
+          "opening_type": "delivering",
+          "opening_time": "09:45",
+          "closing_time": "23:30"
+        },
+        {
+          "id": 0,
+          "weekday": 1,
+          "opening_type": "pickup",
+          "opening_time": "09:30",
+          "closing_time": "23:30"
+        },
+        {
+          "id": 0,
+          "weekday": 2,
+          "opening_type": "pickup",
+          "opening_time": "09:30",
+          "closing_time": "23:30"
+        },
+        {
+          "id": 0,
+          "weekday": 3,
+          "opening_type": "pickup",
+          "opening_time": "09:30",
+          "closing_time": "23:30"
+        },
+        {
+          "id": 0,
+          "weekday": 4,
+          "opening_type": "pickup",
+          "opening_time": "09:30",
+          "closing_time": "23:30"
+        },
+        {
+          "id": 0,
+          "weekday": 5,
+          "opening_type": "pickup",
+          "opening_time": "09:30",
+          "closing_time": "23:30"
+        },
+        {
+          "id": 0,
+          "weekday": 6,
+          "opening_type": "pickup",
+          "opening_time": "09:30",
+          "closing_time": "23:30"
+        },
+        {
+          "id": 0,
+          "weekday": 7,
+          "opening_type": "pickup",
+          "opening_time": "09:45",
+          "closing_time": "23:30"
+        }
+      ],
+      "service_fee": 0,
+      "service_fee_percentage_amount": 0,
+      "short_name": "Tarihi Mercan Dönercisi",
+      "small_order_fee": null,
+      "special_days": [],
+      "tag": "%10 İndirim",
+      "tags": [
+        {
+          "code": "DEAL",
+          "text": "%10 İndirim"
+        }
+      ],
+      "trade_register_number": "",
+      "url_key": "tarihi-mercan-donercisi",
+      "characteristics": {
+        "cuisines": [
+          {
+            "id": 1064,
+            "name": "Döner",
+            "url_key": "doner",
+            "main": true
+          },
+          {
+            "id": 1071,
+            "name": "Kebap & Türk Mutfağı",
+            "url_key": "kebap-and-turk-mutfagi",
+            "main": false
+          }
+        ],
+        "food_characteristics": [
+          {
+            "id": 2,
+            "name": "Restoran Teslimatlı",
+            "is_halal": false,
+            "is_vegetarian": false
+          }
+        ],
+        "primary_cuisine": {
+          "id": 1064,
+          "name": "Döner",
+          "url_key": "doner",
+          "main": true
+        }
+      },
+      "vendor_legal_information": {
+        "legal_name": "Yasin Akçiçek",
+        "address_line_1": "Fahrettin Kerim Gökay Cad. No:102 Kadıköy"
+      },
+      "vertical": "restaurants",
+      "vertical_segment": "restaurants",
+      "vertical_parent": "Restaurant",
+      "web_path": "https://www.yemeksepeti.com/restaurant/jn6g/tarihi-mercan-donercisi",
+      "is_partner_cashback_disabled": false,
+      "vertical_type_ids": ["restaurants"],
+      "other_vendors_in_chain": 0,
+      "menus": [
+        {
+          "ab_sorting_applied": false,
+          "id": 71870,
+          "code": "",
+          "name": "Ana Menü",
+          "description": "",
+          "type": "delivery",
+          "opening_time": "00:00:00",
+          "closing_time": "23:59:00",
+          "menu_categories": [
+            {
+              "id": 2736460,
+              "code": "a7108527-6f28-481a-ac3c-0d6dfe8a0588",
+              "name": "Coca-Cola Fırsat Menüleri",
+              "description": "",
+              "products": [
+                {
+                  "id": 37138657,
+                  "code": "d0af5634-2a19-4ac5-b87d-d704be234896",
+                  "name": "Coca-Cola Fırsatı (Pilav Üstü Et Döner)",
+                  "description": "Pilav Üstü Et Döner + Coca-Cola (33 cl.)",
+                  "master_category_id": 8,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/37138657.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 45031610,
+                      "code": "083394f4-e692-425d-a5c4-0b8eeff785e8",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 319.59000000000003,
+                      "price_before_discount": 355.1,
+                      "topping_ids": [13464335, 13464336],
+                      "topping_properties": [
+                        {
+                          "id": 13464335
+                        },
+                        {
+                          "id": 13464336
+                        }
+                      ],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": true
+                }
+              ],
+              "partner": {
+                "id": 1,
+                "code": "coca-cola",
+                "title": "Coca-Cola",
+                "images": {
+                  "category": {
+                    "web": "https://images.deliveryhero.io/image/fd-tr/Brands/coca-cola/coca-cola_category_web.png",
+                    "mobile": "https://images.deliveryhero.io/image/fd-tr/Brands/coca-cola/coca-cola_category_mobile.png"
+                  }
+                }
+              },
+              "is_popular_category": false
+            },
+            {
+              "id": 63376,
+              "code": "35a4f746-456e-46a9-bc06-c40e3748435d",
+              "name": "Çorbalar",
+              "description": "",
+              "products": [
+                {
+                  "id": 2433062,
+                  "code": "e88c4512-292e-4ab9-9c4e-ba5d685af020",
+                  "name": "Mercimek Çorbası",
+                  "description": "Ekmek ile",
+                  "master_category_id": 2,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433062.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917037,
+                      "code": "1951b2b7-0bc9-4cdb-bbde-35683d9c056c",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 66,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433063,
+                  "code": "c5dfe1a0-212c-419c-aaf1-9b59da0898e3",
+                  "name": "Ezogelin Çorbası",
+                  "description": "Ekmek ile",
+                  "master_category_id": 2,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433063.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917038,
+                      "code": "845a8bc8-ecfb-45d0-b58c-dda021be4e06",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 69,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                }
+              ],
+              "is_popular_category": false
+            },
+            {
+              "id": 63377,
+              "code": "c0d6d3cf-65e7-4576-9aee-d61eaf65aba4",
+              "name": "Et Dönerler",
+              "description": "",
+              "products": [
+                {
+                  "id": 2433065,
+                  "code": "ad8b6a16-56f0-405b-8408-d26c62aee109",
+                  "name": "Et Döner",
+                  "description": "Et döner, patates kızartması, turşu, süs biberi, pirinç pilavı, sıcak lavaş",
+                  "master_category_id": 4,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433065.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917040,
+                      "code": "f25690de-ff79-4d1d-a0e6-63d07180f622",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 298,
+                      "topping_ids": [7413],
+                      "topping_properties": [
+                        {
+                          "id": 7413,
+                          "use_original_price": true
+                        }
+                      ],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "tags": ["popular"],
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433066,
+                  "code": "c1770e4d-0560-4949-82e5-c94adeb0a3fa",
+                  "name": "Et Döner (250 gr.)",
+                  "description": "Patates kızartması, lavaş, turşu, süs biberi, pirinç pilavı, lavaş ile",
+                  "master_category_id": 4,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433066.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917041,
+                      "code": "626dea4c-23c9-4c4e-842a-9ac3564e1eab",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 628,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433067,
+                  "code": "9732ea71-f2da-4391-bac9-46ae2a3aadaf",
+                  "name": "Pilav Üstü Et Döner",
+                  "description": "Pilav üstü et döner, patates kızartması, lavaş, turşu, süs biberi ile",
+                  "master_category_id": 4,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433067.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917042,
+                      "code": "e5a6aea5-411f-4ec6-86d3-9d2c03388c6f",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 308,
+                      "topping_ids": [7421],
+                      "topping_properties": [
+                        {
+                          "id": 7421,
+                          "use_original_price": true
+                        }
+                      ],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "tags": ["popular"],
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433068,
+                  "code": "a187aca8-22bf-4ed5-b863-ee7559bc4665",
+                  "name": "İskender (Et Dönerden)",
+                  "description": "Tırnak pide üzerine et döner, tereyağı, iskender sosu, yoğurt. Turşu, süs biberi ile",
+                  "master_category_id": 4,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433068.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917043,
+                      "code": "d91919df-9cd6-4e16-b370-15e421dc9d8f",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 338,
+                      "topping_ids": [7422],
+                      "topping_properties": [
+                        {
+                          "id": 7422,
+                          "use_original_price": true
+                        }
+                      ],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433069,
+                  "code": "9b1a6392-e18d-4045-86bd-30684fe72d6d",
+                  "name": "Kaşarlı Beyti Et Döner",
+                  "description": "Lavaş içinde et döner üzerinde fırınlanmış kaşar peyniri, özel sos, tereyağı. Paketlenmiş yoğurt , turşu ile",
+                  "master_category_id": 4,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433069.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917044,
+                      "code": "f3913d66-d2b4-4fb2-80a8-7d6b9c329e10",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 342,
+                      "topping_ids": [7416],
+                      "topping_properties": [
+                        {
+                          "id": 7416,
+                          "use_original_price": true
+                        }
+                      ],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "tags": ["dsa_required"],
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433074,
+                  "code": "32328628-9721-4361-ad53-3ee925282441",
+                  "name": "Tam Ekmek Arası Et Döner",
+                  "description": "Et döner, patates kızartması, turşu, domates, süs biberi",
+                  "master_category_id": 4,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433074.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917049,
+                      "code": "9cf4ee2b-d652-4d15-b266-9eb9d1be5d03",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 258,
+                      "topping_ids": [7420],
+                      "topping_properties": [
+                        {
+                          "id": 7420,
+                          "use_original_price": true
+                        }
+                      ],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 28166790,
+                  "code": "14c5f451-8983-4b48-b90c-8efc320919f4",
+                  "name": "Tombik Ekmek Arası Et Döner",
+                  "description": "Et döner, patates kızartması, domates, turşu, süs biberi",
+                  "master_category_id": 4,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/28166790.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 35954368,
+                      "code": "1c916eae-3375-4354-9ceb-095fd96e0bc4",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 188,
+                      "topping_ids": [7424],
+                      "topping_properties": [
+                        {
+                          "id": 7424,
+                          "use_original_price": true
+                        }
+                      ],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "tags": ["popular"],
+                  "is_bundle": false
+                },
+                {
+                  "id": 28166913,
+                  "code": "57074ca9-ef64-4cf4-9d64-62375b513b27",
+                  "name": "Et Döner Dürüm",
+                  "description": "Et döner, patates kızartması, domates, turşu, süs biberi",
+                  "master_category_id": 4,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/28166913.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 35954491,
+                      "code": "48659475-8dc9-4b51-829f-9104cb43f5ab",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 188,
+                      "topping_ids": [7419],
+                      "topping_properties": [
+                        {
+                          "id": 7419,
+                          "use_original_price": true
+                        }
+                      ],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "tags": ["popular"],
+                  "is_bundle": false
+                },
+                {
+                  "id": 28166989,
+                  "code": "9941917f-d77e-4cbc-81b2-2d6c68f7f26a",
+                  "name": "Kaşarlı Et Döner Dürüm",
+                  "description": "Et döner, patates kızartması, domates, süs biberi",
+                  "master_category_id": 4,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/28166989.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 35954567,
+                      "code": "295f13fe-0796-4eb5-accc-659a20ede74e",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 200,
+                      "topping_ids": [7411],
+                      "topping_properties": [
+                        {
+                          "id": 7411,
+                          "use_original_price": true
+                        }
+                      ],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "tags": ["popular"],
+                  "is_bundle": false
+                },
+                {
+                  "id": 28167107,
+                  "code": "6d2c755c-0558-4b7a-8afd-64f9a75cbb79",
+                  "name": "Yarım Ekmek Arası Et Döner",
+                  "description": "Et döner, patates kızartması, domates, turşu, süs biberi",
+                  "master_category_id": 4,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/28167107.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 35954685,
+                      "code": "f0126a7b-f66c-4138-9fe1-4150cf505c4b",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 188,
+                      "topping_ids": [7425],
+                      "topping_properties": [
+                        {
+                          "id": 7425,
+                          "use_original_price": true
+                        }
+                      ],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "tags": ["popular"],
+                  "is_bundle": false
+                },
+                {
+                  "id": 37243134,
+                  "code": "0b8df685-215f-46d8-b5d8-346064538800",
+                  "name": "3/4 Ekmek Arası Et Döner",
+                  "description": "Domates, turşu. Süs biberi ile",
+                  "master_category_id": 4,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/37243134.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 45136745,
+                      "code": "34265f30-6014-4214-87d7-a2e9ef82aff5",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "name": "80 gr.",
+                      "price": 225,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    },
+                    {
+                      "id": 45230053,
+                      "code": "10bfc240-5765-4ae6-adc8-0ac915a3c0d6",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "name": "150 gr.",
+                      "price": 343,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    },
+                    {
+                      "id": 45230054,
+                      "code": "11ba2b70-7e91-4e95-ba76-7e5e8003a3b9",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "name": "100 gr.",
+                      "price": 254,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    },
+                    {
+                      "id": 45230056,
+                      "code": "4cdfcfcb-42e7-44fe-94ea-4b3edaaf8ac8",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "name": "240 gr.",
+                      "price": 515,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    },
+                    {
+                      "id": 45230059,
+                      "code": "05f0ba60-a0d2-4cde-85b9-3726a880415b",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "name": "200 gr.",
+                      "price": 444,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    },
+                    {
+                      "id": 45230061,
+                      "code": "d181c301-291f-4057-a1f3-9a2342b96f2b",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "name": "125 gr.",
+                      "price": 309,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    },
+                    {
+                      "id": 46487801,
+                      "code": "bdfe722b-0a6c-47cb-854a-83d6de6ee3f2",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "name": "300 gr.",
+                      "price": 626,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                }
+              ],
+              "is_popular_category": false
+            },
+            {
+              "id": 63378,
+              "code": "a350bd92-46e7-47f7-822f-6440e34131f2",
+              "name": "Yan Ürünler",
+              "description": "",
+              "products": [
+                {
+                  "id": 2433076,
+                  "code": "fef497c3-b69a-47ab-8b6c-33d7771341c0",
+                  "name": "Ev Yapımı Patates Kızartması",
+                  "description": "Parmak dilim",
+                  "master_category_id": 5,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433076.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917051,
+                      "code": "15e7eea1-54ec-4d85-96c2-36535736c9e1",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 65,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433077,
+                  "code": "da9a2e41-79f4-4119-b8d9-c9752841121d",
+                  "name": "Yoğurt",
+                  "description": "Adet olarak servis edilmektedir.",
+                  "master_category_id": 5,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433077.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917052,
+                      "code": "ba5cff39-c07e-42ce-92eb-7df37f3172f2",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 57,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433078,
+                  "code": "1dbddde8-1385-40b0-ba70-53e4a3e3835a",
+                  "name": "Çoban Salata",
+                  "description": "Domates, salatalık, biber, isteğe göre soğan",
+                  "master_category_id": 5,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433078.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917053,
+                      "code": "8a49ef47-ec7b-4d14-a3fc-df7bb303f033",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 49,
+                      "topping_ids": [7418],
+                      "topping_properties": [
+                        {
+                          "id": 7418,
+                          "use_original_price": true
+                        }
+                      ],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433079,
+                  "code": "13d21ed0-8a2a-424c-b7cf-3b12cd197898",
+                  "name": "Cacık",
+                  "description": "Salatalık, nane. Sipariş verildikten sonra hazırlanır.",
+                  "master_category_id": 5,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433079.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917054,
+                      "code": "5643392b-804e-4b6a-a150-861f5f437ccd",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 49,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433080,
+                  "code": "698e8a06-5ab9-4333-8436-3be1f6a13011",
+                  "name": "Pirinç Pilavı",
+                  "description": "Pirinçlerin yağ ile kavrulup su eklenerek pişirilmesiyle elde edilen yemektir.",
+                  "master_category_id": 5,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433080.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917055,
+                      "code": "26777553-d42a-47dd-953e-bb3906843297",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 59,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 36177234,
+                  "code": "13166ce0-1829-442d-9e79-b680fecc12f0",
+                  "name": "Kızartma İçli Köfte (Adet)",
+                  "description": "Bulgurun içerisine doldurulan kıyma, soğan ve baharatlarla hazırlanan bir yemektir.",
+                  "master_category_id": 5,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/36177234.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 44059767,
+                      "code": "6e0218a9-4479-46fe-b87d-5558ef76363c",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 65,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 45479375,
+                  "code": "96ca6d4e-78f5-4959-9cea-5f4d904bfcd0",
+                  "name": "Süs Biberi Turşusu (250 gr.)",
+                  "description": "",
+                  "master_category_id": 5,
+                  "file_path": "",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 53626872,
+                      "code": "a3a89c89-9e6e-4812-a2c3-4b8789e484b9",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 59,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                }
+              ],
+              "is_popular_category": false
+            },
+            {
+              "id": 63379,
+              "code": "955c3fc0-040d-4295-a802-9cf93e7d9ed9",
+              "name": "Tatlılar",
+              "description": "",
+              "products": [
+                {
+                  "id": 2433082,
+                  "code": "9b456aca-1053-4d0f-9ea9-39f3f4e9d702",
+                  "name": "Kemalpaşa Tatlısı",
+                  "description": "Hindistan cevizi veya tahinli yer fıstığı ile",
+                  "master_category_id": 9,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433082.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917057,
+                      "code": "0f412fa2-59bf-478d-adbd-e6b7d2f42732",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 55,
+                      "topping_ids": [7426],
+                      "topping_properties": [
+                        {
+                          "id": 7426,
+                          "use_original_price": true
+                        }
+                      ],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433086,
+                  "code": "d1bbcd6a-43f0-4c7c-84b1-7663d4541f9b",
+                  "name": "Fırın Sütlaç",
+                  "description": "İsteğe göre yer fıstığı ile servis edilir",
+                  "master_category_id": 9,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433086.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917061,
+                      "code": "1277f0da-1239-47d5-9099-c7737505c6c2",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 65,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433088,
+                  "code": "766B968D-22BD-4EA2-A58A-1C9BE215377C",
+                  "name": "Tulumba Tatlısı (250 gr.)",
+                  "description": "Tatlıcı hamuru, şerbet",
+                  "master_category_id": 9,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433088.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917063,
+                      "code": "372d08f2-dc39-46f9-b9dc-433f95b91471",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 65,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 23794547,
+                  "code": "40e59984-e682-4497-9717-a02d2b3cbe0c",
+                  "name": "Soğuk Baklava",
+                  "description": "Soğuk süt, kakao, fıstık",
+                  "master_category_id": 9,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/23794547.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 31528766,
+                      "code": "03b89352-7305-47b0-9019-380467a717a2",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 69,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                }
+              ],
+              "is_popular_category": false
+            },
+            {
+              "id": 63380,
+              "code": "2b501858-ea19-4a87-a23c-e78c6f800bb5",
+              "name": "İçecekler",
+              "description": "",
+              "products": [
+                {
+                  "id": 2433093,
+                  "code": "3a3dbe55-3ed8-4e44-be6c-f899352b891e",
+                  "name": "Coca-Cola (33 cl.)",
+                  "description": "Kutu içecek",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433093.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917069,
+                      "code": "76261802-506e-4c36-86a6-348a06de578f",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 47,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433094,
+                  "code": "fb929259-824b-46e8-a5bf-9321a81cdd17",
+                  "name": "Coca-Cola Light (33 cl.)",
+                  "description": "Kutu içecek",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433094.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917070,
+                      "code": "a7180474-1e86-441c-a71a-bf882a5a201d",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 47,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433095,
+                  "code": "2d754c35-b83d-4657-a74d-41e427a710ba",
+                  "name": "Coca-Cola Şekersiz (33 cl.)",
+                  "description": "Kutu içecek",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433095.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917071,
+                      "code": "ec06c773-220b-4d25-89f0-34169051472f",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 47,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433099,
+                  "code": "b66344fd-4202-4db1-81e8-0d001c0a64d9",
+                  "name": "Fuse Tea (33 cl.)",
+                  "description": "Kutu içecek",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433099.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917075,
+                      "code": "1f6e1872-848e-4112-8895-252566ad6137",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 47,
+                      "topping_ids": [7432],
+                      "topping_properties": [
+                        {
+                          "id": 7432,
+                          "use_original_price": true
+                        }
+                      ],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 52119972,
+                  "code": "8c7a89d2-707c-4743-92d3-9c251eedc943",
+                  "name": "Uludağ Limonata (33 cl.)",
+                  "description": "Pet şişe",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/52119972.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 60317159,
+                      "code": "2a891ef2-f25c-4bac-ac62-7f0f61cd1927",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 37,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 48633964,
+                  "code": "5578749a-3646-4071-8fb6-ce289c41e16b",
+                  "name": "Uludağ Gazozu (33 cl.)",
+                  "description": "İçecek",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/48633964.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 56800786,
+                      "code": "69a337a9-05db-41e3-b1c4-e08e0ba07c97",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 37,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 53714467,
+                  "code": "ceba1f98-7bb7-4134-b2a5-37398ca6915c",
+                  "name": "Uludağ Portakal (33 cl.)",
+                  "description": "Kutu içecek",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/53714467.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 61943673,
+                      "code": "a7fc52c7-bde4-46c5-90ea-e39cd3a388d6",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 37,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433100,
+                  "code": "14fc4a74-863d-4dbb-97ca-dcb52d84ff86",
+                  "name": "Şalgam Suyu (30 cl.)",
+                  "description": "Pet şişe",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433100.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917076,
+                      "code": "6a8d65d1-855e-49f1-994f-aee2d716dade",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 37,
+                      "topping_ids": [7415],
+                      "topping_properties": [
+                        {
+                          "id": 7415,
+                          "use_original_price": true
+                        }
+                      ],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 49535841,
+                  "code": "002133a6-939d-4224-8d87-dfa584eb2001",
+                  "name": "Açık Ayran (50 cl.)",
+                  "description": "Büyük",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/49535841.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 57720723,
+                      "code": "9458b520-b9ad-437b-90cf-b825a33f8247",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 55,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 50118969,
+                  "code": "adc0bff5-8604-4246-a399-7879daf8fcd8",
+                  "name": "Açık Ayran (33 cl.)",
+                  "description": "Büyük boy",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/50118969.webp?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 58310607,
+                      "code": "e942c11c-84ca-4218-9fef-3519734b0fb3",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 39,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433102,
+                  "code": "f72b4495-2213-4c5f-a385-b4d65d4c8760",
+                  "name": "Eker Ayran (29,5 cl.)",
+                  "description": "Büyük",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433102.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917078,
+                      "code": "ac65410a-6207-4987-99de-f724f3b72b1e",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 37,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 45503670,
+                  "code": "71645fbe-abc0-4cd0-9876-9d05be3524a1",
+                  "name": "Turşu Suyu (19 cl.)",
+                  "description": "Bardak",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/45503670.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 53651208,
+                      "code": "0d4403f2-a749-450b-8ffc-c051a4e4e559",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 29,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "tags": ["dsa_required"],
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433105,
+                  "code": "ba229734-b298-4de1-b447-8439ab1a76b1",
+                  "name": "Limonlu Soda (20 cl.)",
+                  "description": "Cam şişe",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433105.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917081,
+                      "code": "173a5ce1-e2c0-42e0-aff9-8c3ac173925d",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 37,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433106,
+                  "code": "bf2020a2-87df-4d70-aa79-43a07959012f",
+                  "name": "Soda (20 cl.)",
+                  "description": "Cam şişe",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433106.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917082,
+                      "code": "b9720207-2056-4733-9c42-0c652fdc35bc",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 37,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433107,
+                  "code": "b0df93e2-341c-4a14-a8ec-340c6ec70496",
+                  "name": "Su (50 cl.)",
+                  "description": "Küçük",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433107.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917083,
+                      "code": "c569d9db-c55b-417a-a3ee-19294fc106a3",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 18,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433108,
+                  "code": "24b25870-8f17-4f82-abd4-a08a23a2a9d8",
+                  "name": "Coca-Cola (1 L.)",
+                  "description": "Pet şişe",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433108.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917084,
+                      "code": "2b18edb2-ef19-417d-b233-4f10bf455b37",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 99,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433111,
+                  "code": "ac2387b9-370e-4a6a-8e89-354319b5fb3a",
+                  "name": "Coca-Cola Zero Sugar (1 L.)",
+                  "description": "Pet şişe",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433111.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917087,
+                      "code": "74e96ba0-2055-4aa9-9561-9bbd4b535dbf",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 99,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433110,
+                  "code": "d7448d59-4a07-4735-81cd-a13a5299c698",
+                  "name": "Coca-Cola Şekersiz (1 L.)",
+                  "description": "Pet şişe",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433110.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917086,
+                      "code": "4b87a92b-881a-4469-ae74-f2ae75ee50aa",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 99,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433109,
+                  "code": "1f8a8b29-d6a2-47c3-9730-58d5eed0e598",
+                  "name": "Coca-Cola Light (1 L.)",
+                  "description": "Pet şişe",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433109.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917085,
+                      "code": "408ce397-8b98-4bcc-97d5-2622d16ab5f5",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 99,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433112,
+                  "code": "dc7b1723-a608-480d-9372-1171b48ab296",
+                  "name": "Fanta (1 L.)",
+                  "description": "Pet şişe",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433112.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917088,
+                      "code": "fa97e4d3-210d-45b6-b813-ec999efc965f",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 99,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 48810933,
+                  "code": "806f55e3-487a-491d-a10f-0beaf7c9a441",
+                  "name": "Uludağ Gazoz (1 L.)",
+                  "description": "Pet şişe",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/48810933.jfif?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 56989601,
+                      "code": "2a542e85-da6d-4494-81f5-84c42ed0de7e",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 85,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 35545231,
+                  "code": "c017a3ac-b7dd-469d-931f-7fa8e6c1a2af",
+                  "name": "Eker Ayran (1 L.)",
+                  "description": "Pet şişe",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/35545231.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 43422846,
+                      "code": "bb049b04-f3c2-40b0-a209-f23eeedf4f7a",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 85,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 49524355,
+                  "code": "a71fb97f-9ed5-4269-b933-ad8fdc3419ca",
+                  "name": "Açık Ayran (1 L.)",
+                  "description": "Pet şişe",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/49524355.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 57708666,
+                      "code": "88a38ae6-cd91-48a8-bf57-af09735883e8",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 96,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                }
+              ],
+              "is_popular_category": false
+            },
+            {
+              "id": 63381,
+              "code": "64c27cac-9c24-4d43-8cb9-7dee9643947e",
+              "name": "Vitamin Bar",
+              "description": "",
+              "products": [
+                {
+                  "id": 2433114,
+                  "code": "e162197d-b015-4109-9f69-c381b7bd1fff",
+                  "name": "Taze Sıkma Portakal Suyu (50 cl.)",
+                  "description": "Kapaklı pet şişede servis edilir.",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433114.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917090,
+                      "code": "9f6b4098-553a-45ab-a603-bddc795b688d",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 79,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433115,
+                  "code": "0148D474-4FFB-4490-945A-A627415C5D09",
+                  "name": "Taze Sıkma Nar Suyu (50 cl.)",
+                  "description": "Taze sıkma",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433115.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917091,
+                      "code": "9edcdfdf-2ba0-4126-8e97-a2ec243084e8",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 87,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433116,
+                  "code": "40A64702-3436-42E5-A2EF-58219265747F",
+                  "name": "Taze Sıkma Portakal Suyu (1 L.)",
+                  "description": "Taze sıkma",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433116.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917092,
+                      "code": "91c738c6-93ad-442b-9c78-113e3ae52872",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 154,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433117,
+                  "code": "2660A747-8695-4A25-B249-1883D30EEEB8",
+                  "name": "Taze Sıkma Nar Suyu (1 L.)",
+                  "description": "Taze sıkma",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433117.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917093,
+                      "code": "a8e0cb9d-f961-485f-b4ee-dd0bb7e584b6",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 168,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433118,
+                  "code": "ea5565e6-b0a3-4ddd-91c9-06bfb6a3547b",
+                  "name": "Taze Sıkma Portakal Suyu (33 cl.)",
+                  "description": "Taze sıkma",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433118.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917094,
+                      "code": "5a874514-0d06-4745-8639-ed6fdabd40a2",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 65,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 48722084,
+                  "code": "84ee2ab6-8112-4e0c-b26e-7911cbb55aad",
+                  "name": "Taze Sıkma Nar Suyu (33 cl.)",
+                  "description": "Taze sıkma",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/48722084.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 56889692,
+                      "code": "1fcee8c7-0fa7-47e2-bc41-9fc407ba49fe",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 73,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 49119949,
+                  "code": "ddcafc0d-2c39-4d1b-afe0-16465174a955",
+                  "name": "Portakal & Nar Karışık Taze Sıkma (50 cl.)",
+                  "description": "Portakal, nar",
+                  "master_category_id": 11,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/49119949.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": true,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 57299375,
+                      "code": "b916b532-c82c-40fb-9987-c2c8d2dc355d",
+                      "remote_code": "",
+                      "container_price": 0,
+                      "price": 83,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                }
+              ],
+              "is_popular_category": false
+            },
+            {
+              "id": 63382,
+              "code": "c93e518a-f41f-4543-8b10-5c23abf0d6d9",
+              "name": "Kiloluk Dönerler (Pişirilmiş)",
+              "description": "",
+              "products": [
+                {
+                  "id": 2433119,
+                  "code": "c36ba84b-3126-45ea-bf91-08a20d4e4dcd",
+                  "name": "Et Döner (500 gr.)",
+                  "description": "4 adet sıcak lavaş, patates kızartması, pirinç pilavı, salatalık ve biber turşusu, çoban salata (500 gram pişmiş dönerden tartılır.)",
+                  "master_category_id": 4,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433119.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917095,
+                      "code": "1e9f82d8-beaa-4902-82dc-9334f8c16957",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 1170,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433120,
+                  "code": "da51d65e-3b21-4d84-90e2-5a8dfa5fca46",
+                  "name": "Et Döner (750 gr.)",
+                  "description": "6 adet sıcak lavaş, patates kızartması, pirinç pilavı, salatalık ve biber turşusu, çoban salata (Pişmiş dönerden 750 gram olarak tartılır.)",
+                  "master_category_id": 4,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433120.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917096,
+                      "code": "5705d9dd-fff1-43ec-aa8a-6b37c12f4f4e",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 1690,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                },
+                {
+                  "id": 2433121,
+                  "code": "d308b460-d3fc-4ecf-92b7-ceaf89bd40c8",
+                  "name": "Et Döner (1 kg.)",
+                  "description": "8 adet sıcak lavaş, patates kızartması, pirinç pilavı, salata ve biber turşusu (Pişmiş dönerden 1 kilo olarak tartılır.)",
+                  "master_category_id": 4,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433121.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917097,
+                      "code": "1e4d66b3-5fda-41b0-b72a-26e7f43193ae",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 2050,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "is_bundle": false
+                }
+              ],
+              "is_popular_category": false
+            },
+            {
+              "id": 63383,
+              "code": "e2993f11-918a-4496-a25e-be8ddad8c247",
+              "name": "Poşet",
+              "description": "",
+              "products": [
+                {
+                  "id": 2433122,
+                  "code": "bb65a61e-b81f-4329-a974-38f25bc4df64",
+                  "name": "Poşet",
+                  "description": "Çevre Kanunu kapsamında yapılan değişiklikle her bir plastik poşetin tüketicilere 0,25 TL fiyat karşılığı satılması Çevre, Şehircilik ve İklim Değişikliği Bakanlığı tarafından zorunlu hale getirilmiştir. Plastik poşet talep etmeniz halinde ürünü sepete eklemeniz gerekmektedir. Sepete eklenen her bir plastik poşet için ilgili bedel tarafınızdan tahsil edilecektir.",
+                  "master_category_id": 13,
+                  "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433122.jpg?width=%s",
+                  "is_sold_out": false,
+                  "is_express_item": false,
+                  "additives": [],
+                  "is_alcoholic_item": false,
+                  "sold_out_options": null,
+                  "product_variations": [
+                    {
+                      "id": 10917098,
+                      "code": "80c1afc0-5c7f-4992-842a-63b384f9573c",
+                      "remote_code": "Product",
+                      "container_price": 0,
+                      "price": 0.25,
+                      "topping_ids": [],
+                      "topping_properties": [],
+                      "unit_pricing": null,
+                      "total_price": 0
+                    }
+                  ],
+                  "half_type": "",
+                  "tags": ["PLASTIC_BAG_FEE"],
+                  "is_bundle": false
+                }
+              ],
+              "is_popular_category": false
+            }
+          ],
+          "toppings": {
+            "7411": {
+              "id": 7411,
+              "name": "Gramaj Seçimi (Kaşarlı Et Döner Dürüm)",
+              "description": "",
+              "quantity_minimum": 1,
+              "quantity_maximum": 1,
+              "options": [
+                {
+                  "id": 33340962,
+                  "product_id": 10181422,
+                  "name": "60 gr.",
+                  "description": "60 gr.",
+                  "price": 0,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596524,
+                  "product_id": 10181423,
+                  "name": "80 gr.",
+                  "description": "80 gr.",
+                  "price": 29,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133597262,
+                  "product_id": 10181424,
+                  "name": "100 gr.",
+                  "description": "100 gr.",
+                  "price": 57,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596527,
+                  "product_id": 10181425,
+                  "name": "125 gr.",
+                  "description": "125 gr.",
+                  "price": 104,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596528,
+                  "product_id": 10181426,
+                  "name": "150 gr.",
+                  "description": "150 gr.",
+                  "price": 147,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596529,
+                  "product_id": 10181427,
+                  "name": "200 gr.",
+                  "description": "200 gr.",
+                  "price": 248,
+                  "remote_code": "FreeText"
+                }
+              ],
+              "type": "choice-group"
+            },
+            "7413": {
+              "id": 7413,
+              "name": "Gramaj Seçimi (Et Döner)",
+              "description": "",
+              "quantity_minimum": 1,
+              "quantity_maximum": 1,
+              "options": [
+                {
+                  "id": 33340970,
+                  "product_id": 10181430,
+                  "name": "110 gr.",
+                  "description": "110 gr.",
+                  "price": 0,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 134158209,
+                  "product_id": 10181431,
+                  "name": "165 gr.",
+                  "description": "165 gr.",
+                  "price": 127,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 134158210,
+                  "product_id": 10181432,
+                  "name": "220 gr.",
+                  "description": "220 gr.",
+                  "price": 248,
+                  "remote_code": "FreeText"
+                }
+              ],
+              "type": "choice-group"
+            },
+            "7415": {
+              "id": 7415,
+              "name": "Acılı / Acısız",
+              "description": "",
+              "quantity_minimum": 1,
+              "quantity_maximum": 1,
+              "options": [
+                {
+                  "id": 33340973,
+                  "product_id": 10181433,
+                  "name": "Acılı",
+                  "description": "Acılı",
+                  "price": 0,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 33340974,
+                  "product_id": 10181434,
+                  "name": "Acısız",
+                  "description": "Acısız",
+                  "price": 0,
+                  "remote_code": "FreeText"
+                }
+              ],
+              "type": "choice-group"
+            },
+            "7416": {
+              "id": 7416,
+              "name": "Gramaj Seçimi (Kaşarlı Beyti Et Döner)",
+              "description": "",
+              "quantity_minimum": 1,
+              "quantity_maximum": 1,
+              "options": [
+                {
+                  "id": 33340975,
+                  "product_id": 10181430,
+                  "name": "110 gr.",
+                  "description": "110 gr.",
+                  "price": 0,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 134158215,
+                  "product_id": 10181431,
+                  "name": "165 gr.",
+                  "description": "165 gr.",
+                  "price": 146,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 134158216,
+                  "product_id": 10181432,
+                  "name": "220 gr.",
+                  "description": "220 gr.",
+                  "price": 292,
+                  "remote_code": "FreeText"
+                }
+              ],
+              "type": "choice-group"
+            },
+            "7418": {
+              "id": 7418,
+              "name": "Soğanlı / Soğansız",
+              "description": "",
+              "quantity_minimum": 1,
+              "quantity_maximum": 1,
+              "options": [
+                {
+                  "id": 33340983,
+                  "product_id": 10181435,
+                  "name": "Soğanlı",
+                  "description": "Soğanlı",
+                  "price": 0,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 33340984,
+                  "product_id": 10181436,
+                  "name": "Soğansız",
+                  "description": "Soğansız",
+                  "price": 0,
+                  "remote_code": "FreeText"
+                }
+              ],
+              "type": "choice-group"
+            },
+            "7419": {
+              "id": 7419,
+              "name": "Gramaj Seçimi (Et Döner Dürüm)",
+              "description": "",
+              "quantity_minimum": 1,
+              "quantity_maximum": 1,
+              "options": [
+                {
+                  "id": 33340985,
+                  "product_id": 10181422,
+                  "name": "60 gr.",
+                  "description": "60 gr.",
+                  "price": 0,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596510,
+                  "product_id": 10181423,
+                  "name": "80 gr.",
+                  "description": "80 gr.",
+                  "price": 29,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133597260,
+                  "product_id": 10181424,
+                  "name": "100 gr.",
+                  "description": "100 gr.",
+                  "price": 57,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596512,
+                  "product_id": 10181425,
+                  "name": "125 gr.",
+                  "description": "125 gr.",
+                  "price": 104,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596513,
+                  "product_id": 10181426,
+                  "name": "150 gr.",
+                  "description": "150 gr.",
+                  "price": 147,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596516,
+                  "product_id": 10181427,
+                  "name": "200 gr.",
+                  "description": "200 gr.",
+                  "price": 248,
+                  "remote_code": "FreeText"
+                }
+              ],
+              "type": "choice-group"
+            },
+            "7420": {
+              "id": 7420,
+              "name": "Gramaj Seçimi (Tam Ekmek Arası Et Döner)",
+              "description": "",
+              "quantity_minimum": 1,
+              "quantity_maximum": 1,
+              "options": [
+                {
+                  "id": 33340991,
+                  "product_id": 10181424,
+                  "name": "100 gr.",
+                  "description": "100 gr.",
+                  "price": 0,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596611,
+                  "product_id": 10181425,
+                  "name": "125 gr.",
+                  "description": "125 gr.",
+                  "price": 46,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596612,
+                  "product_id": 10181426,
+                  "name": "150 gr.",
+                  "description": "150 gr.",
+                  "price": 89,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596613,
+                  "product_id": 10181427,
+                  "name": "200 gr.",
+                  "description": "200 gr.",
+                  "price": 190,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596614,
+                  "product_id": 32148453,
+                  "name": "240 gr.",
+                  "description": "",
+                  "price": 262,
+                  "remote_code": ""
+                },
+                {
+                  "id": 133596615,
+                  "product_id": 37243369,
+                  "name": "300 gr.",
+                  "description": "",
+                  "price": 372,
+                  "remote_code": ""
+                }
+              ],
+              "type": "choice-group"
+            },
+            "7421": {
+              "id": 7421,
+              "name": "Gramaj Seçimi (Pilav Üstü Et Döner)",
+              "description": "",
+              "quantity_minimum": 1,
+              "quantity_maximum": 1,
+              "options": [
+                {
+                  "id": 33341014,
+                  "product_id": 10181430,
+                  "name": "110 gr.",
+                  "description": "110 gr.",
+                  "price": 0,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 134158211,
+                  "product_id": 10181431,
+                  "name": "165 gr.",
+                  "description": "165 gr.",
+                  "price": 129,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 134158212,
+                  "product_id": 10181432,
+                  "name": "220 gr.",
+                  "description": "220 gr.",
+                  "price": 258,
+                  "remote_code": "FreeText"
+                }
+              ],
+              "type": "choice-group"
+            },
+            "7422": {
+              "id": 7422,
+              "name": "Gramaj Seçimi (İskender)",
+              "description": "",
+              "quantity_minimum": 1,
+              "quantity_maximum": 1,
+              "options": [
+                {
+                  "id": 33340995,
+                  "product_id": 10181430,
+                  "name": "110 gr.",
+                  "description": "110 gr.",
+                  "price": 0,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 134158213,
+                  "product_id": 10181431,
+                  "name": "165 gr.",
+                  "description": "165 gr.",
+                  "price": 144,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 134158214,
+                  "product_id": 10181432,
+                  "name": "220 gr.",
+                  "description": "220 gr.",
+                  "price": 288,
+                  "remote_code": "FreeText"
+                }
+              ],
+              "type": "choice-group"
+            },
+            "7424": {
+              "id": 7424,
+              "name": "Gramaj Seçimi (Tombik Ekmek Arası Et Döner)",
+              "description": "",
+              "quantity_minimum": 1,
+              "quantity_maximum": 1,
+              "options": [
+                {
+                  "id": 33341000,
+                  "product_id": 10181422,
+                  "name": "60 gr.",
+                  "description": "60 gr.",
+                  "price": 0,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596514,
+                  "product_id": 10181423,
+                  "name": "80 gr.",
+                  "description": "80 gr.",
+                  "price": 29,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133597263,
+                  "product_id": 10181424,
+                  "name": "100 gr.",
+                  "description": "100 gr.",
+                  "price": 57,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596517,
+                  "product_id": 10181425,
+                  "name": "125 gr.",
+                  "description": "125 gr.",
+                  "price": 104,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596518,
+                  "product_id": 10181426,
+                  "name": "150 gr.",
+                  "description": "150 gr.",
+                  "price": 147,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596520,
+                  "product_id": 10181427,
+                  "name": "200 gr.",
+                  "description": "200 gr.",
+                  "price": 248,
+                  "remote_code": "FreeText"
+                }
+              ],
+              "type": "choice-group"
+            },
+            "7425": {
+              "id": 7425,
+              "name": "Gramaj Seçimi (Yarım Ekmek Arası Et Döner)",
+              "description": "",
+              "quantity_minimum": 1,
+              "quantity_maximum": 1,
+              "options": [
+                {
+                  "id": 33341006,
+                  "product_id": 10181422,
+                  "name": "60 gr.",
+                  "description": "60 gr.",
+                  "price": 0,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596519,
+                  "product_id": 10181423,
+                  "name": "80 gr.",
+                  "description": "80 gr.",
+                  "price": 29,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133597261,
+                  "product_id": 10181424,
+                  "name": "100 gr.",
+                  "description": "100 gr.",
+                  "price": 57,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596522,
+                  "product_id": 10181425,
+                  "name": "125 gr.",
+                  "description": "125 gr.",
+                  "price": 104,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596523,
+                  "product_id": 10181426,
+                  "name": "150 gr.",
+                  "description": "150 gr.",
+                  "price": 147,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 133596525,
+                  "product_id": 10181427,
+                  "name": "200 gr.",
+                  "description": "200 gr.",
+                  "price": 248,
+                  "remote_code": "FreeText"
+                }
+              ],
+              "type": "choice-group"
+            },
+            "7426": {
+              "id": 7426,
+              "name": "Malzeme Seçimi",
+              "description": "",
+              "quantity_minimum": 1,
+              "quantity_maximum": 1,
+              "options": [
+                {
+                  "id": 33341012,
+                  "product_id": 10181428,
+                  "name": "Hindistan Cevizi",
+                  "description": "Hindistan Cevizi",
+                  "price": 0,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 33341013,
+                  "product_id": 10181429,
+                  "name": "Tahinli Yer Fıstığı",
+                  "description": "Tahinli Yer Fıstığı",
+                  "price": 0,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 88193148,
+                  "product_id": 10181421,
+                  "name": "Yer Fıstığı",
+                  "description": "Yer Fıstığı",
+                  "price": 0,
+                  "remote_code": "Ingredient"
+                }
+              ],
+              "type": "choice-group"
+            },
+            "7432": {
+              "id": 7432,
+              "name": "Fuse Tea Seçimi (33 cl.)",
+              "description": "",
+              "quantity_minimum": 1,
+              "quantity_maximum": 1,
+              "options": [
+                {
+                  "id": 33341017,
+                  "product_id": 10181437,
+                  "name": "Limon",
+                  "description": "Limon",
+                  "price": 0,
+                  "remote_code": "FreeText"
+                },
+                {
+                  "id": 33341018,
+                  "product_id": 10181438,
+                  "name": "Şeftali",
+                  "description": "Şeftali",
+                  "price": 0,
+                  "remote_code": "FreeText"
+                }
+              ],
+              "type": "choice-group"
+            },
+            "13464335": {
+              "id": 13464335,
+              "name": "Ürün Seçimi",
+              "description": "",
+              "quantity_minimum": 1,
+              "quantity_maximum": 1,
+              "options": [
+                {
+                  "id": 101511913,
+                  "product_id": 2433067,
+                  "name": "Pilav Üstü Et Döner",
+                  "description": "Pilav üstü et döner, patates kızartması, lavaş, turşu, süs biberi ile",
+                  "price": 0,
+                  "remote_code": "Product",
+                  "price_map": {
+                    "45031610": 0
+                  },
+                  "product": {
+                    "id": 2433067,
+                    "code": "9732ea71-f2da-4391-bac9-46ae2a3aadaf",
+                    "name": "Pilav Üstü Et Döner",
+                    "description": "Pilav üstü et döner, patates kızartması, lavaş, turşu, süs biberi ile",
+                    "master_category_id": 4,
+                    "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433067.jpg",
+                    "is_sold_out": false,
+                    "is_express_item": false,
+                    "additives": [],
+                    "is_alcoholic_item": false,
+                    "sold_out_options": null,
+                    "product_variations": [
+                      {
+                        "id": 10917042,
+                        "code": "e5a6aea5-411f-4ec6-86d3-9d2c03388c6f",
+                        "remote_code": "Product",
+                        "container_price": 0,
+                        "price": 0,
+                        "topping_ids": [7421],
+                        "topping_properties": [
+                          {
+                            "id": 7421,
+                            "use_original_price": true
+                          }
+                        ],
+                        "unit_pricing": null,
+                        "total_price": 0
+                      }
+                    ],
+                    "half_type": "",
+                    "is_bundle": false
+                  }
+                }
+              ],
+              "type": "product-group"
+            },
+            "13464336": {
+              "id": 13464336,
+              "name": "Coca-Cola Seçimi",
+              "description": "",
+              "quantity_minimum": 1,
+              "quantity_maximum": 1,
+              "options": [
+                {
+                  "id": 101511915,
+                  "product_id": 2433093,
+                  "name": "Coca-Cola (33 cl.)",
+                  "description": "Kutu içecek",
+                  "price": 0,
+                  "remote_code": "Product",
+                  "price_map": {
+                    "45031610": 0
+                  },
+                  "product": {
+                    "id": 2433093,
+                    "code": "3a3dbe55-3ed8-4e44-be6c-f899352b891e",
+                    "name": "Coca-Cola (33 cl.)",
+                    "description": "Kutu içecek",
+                    "master_category_id": 11,
+                    "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433093.jpg",
+                    "is_sold_out": false,
+                    "is_express_item": false,
+                    "additives": [],
+                    "is_alcoholic_item": false,
+                    "sold_out_options": null,
+                    "product_variations": [
+                      {
+                        "id": 10917069,
+                        "code": "76261802-506e-4c36-86a6-348a06de578f",
+                        "remote_code": "Product",
+                        "container_price": 0,
+                        "price": 0,
+                        "topping_ids": [],
+                        "topping_properties": [],
+                        "unit_pricing": null,
+                        "total_price": 0
+                      }
+                    ],
+                    "half_type": "",
+                    "is_bundle": false
+                  }
+                },
+                {
+                  "id": 101511916,
+                  "product_id": 2433094,
+                  "name": "Coca-Cola Light (33 cl.)",
+                  "description": "Kutu içecek",
+                  "price": 0,
+                  "remote_code": "Product",
+                  "price_map": {
+                    "45031610": 0
+                  },
+                  "product": {
+                    "id": 2433094,
+                    "code": "fb929259-824b-46e8-a5bf-9321a81cdd17",
+                    "name": "Coca-Cola Light (33 cl.)",
+                    "description": "Kutu içecek",
+                    "master_category_id": 11,
+                    "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433094.jpg",
+                    "is_sold_out": false,
+                    "is_express_item": false,
+                    "additives": [],
+                    "is_alcoholic_item": false,
+                    "sold_out_options": null,
+                    "product_variations": [
+                      {
+                        "id": 10917070,
+                        "code": "a7180474-1e86-441c-a71a-bf882a5a201d",
+                        "remote_code": "Product",
+                        "container_price": 0,
+                        "price": 0,
+                        "topping_ids": [],
+                        "topping_properties": [],
+                        "unit_pricing": null,
+                        "total_price": 0
+                      }
+                    ],
+                    "half_type": "",
+                    "is_bundle": false
+                  }
+                },
+                {
+                  "id": 101511917,
+                  "product_id": 2433095,
+                  "name": "Coca-Cola Şekersiz (33 cl.)",
+                  "description": "Kutu içecek",
+                  "price": 0,
+                  "remote_code": "Product",
+                  "price_map": {
+                    "45031610": 0
+                  },
+                  "product": {
+                    "id": 2433095,
+                    "code": "2d754c35-b83d-4657-a74d-41e427a710ba",
+                    "name": "Coca-Cola Şekersiz (33 cl.)",
+                    "description": "Kutu içecek",
+                    "master_category_id": 11,
+                    "file_path": "https://images.deliveryhero.io/image/fd-tr/Products/2433095.jpg",
+                    "is_sold_out": false,
+                    "is_express_item": false,
+                    "additives": [],
+                    "is_alcoholic_item": false,
+                    "sold_out_options": null,
+                    "product_variations": [
+                      {
+                        "id": 10917071,
+                        "code": "ec06c773-220b-4d25-89f0-34169051472f",
+                        "remote_code": "Product",
+                        "container_price": 0,
+                        "price": 0,
+                        "topping_ids": [],
+                        "topping_properties": [],
+                        "unit_pricing": null,
+                        "total_price": 0
+                      }
+                    ],
+                    "half_type": "",
+                    "is_bundle": false
+                  }
+                }
+              ],
+              "type": "product-group"
+            }
+          },
+          "tags": {
+            "popular": {
+              "name": "popular",
+              "translation_keys": {
+                "description": "NEXTGEN_POPULAR_CATEGORY_DESCRIPTION",
+                "title": "NEXTGEN_POPULAR_DISH_TAG"
+              },
+              "elements": ["label", "category"],
+              "metadata": {
+                "sorting": [
+                  28166913, 28166790, 2433065, 2433067, 28166989, 28167107
+                ]
+              }
+            }
+          },
+          "default_sold_out_options": [
+            {
+              "default": true,
+              "option": "REFUND",
+              "text": "NEXTGEN_SoldOutOptions_Refund"
+            },
+            {
+              "default": false,
+              "option": "CANCEL",
+              "text": "NEXTGEN_SoldOutOptions_Cancel"
+            },
+            {
+              "default": false,
+              "option": "CALL_CUSTOMER",
+              "text": "NEXTGEN_SoldOutOptions_CALL_CUSTOMER"
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "is_delivery_available": true,
+        "is_pickup_available": true,
+        "available_in": null,
+        "has_discount": true,
+        "timezone": "Europe/Istanbul",
+        "events": [],
+        "close_reasons": [],
+        "is_flood_feature_closed": false
+      }
+    }
+  }
+]

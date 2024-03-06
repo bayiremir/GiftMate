@@ -52,7 +52,6 @@ const ChatScreen = ({route}) => {
 
   useEffect(() => {
     const receiveMessageListener = newMessage => {
-      // Yalnızca seçilen kullanıcıdan gelen mesajları işle
       if (
         newMessage.sender === selectedUser._id ||
         newMessage.receiver === selectedUser._id

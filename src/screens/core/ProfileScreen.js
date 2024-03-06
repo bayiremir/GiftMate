@@ -80,7 +80,7 @@ const ProfileScreen = () => {
   const combinedGifts = [
     ...(received ?? []).map(item => ({...item, type: 'received'})),
     ...(mySendGift ?? []).map(item => ({...item, type: 'sent'})),
-  ];
+  ].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // En yeni öğeden en eskiye doğru sırala
 
   const renderHeader = () => (
     <View style={{}}>

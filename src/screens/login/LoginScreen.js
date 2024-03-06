@@ -32,8 +32,6 @@ const LoginScreen = () => {
     state => state.authSlice,
   );
 
-  console.log('authContent', authContent);
-
   const handleLogin = () => {
     dispatch(fetchAuth({username, password}));
     storage.set('isLogin', true);
