@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   Dimensions,
   FlatList,
@@ -17,6 +17,7 @@ import {PlusCircleIcon} from 'react-native-heroicons/solid';
 import {useRoute} from '@react-navigation/native';
 import {fetchBrandData} from '../../redux/slices/products/brandSlice';
 import HorizontalScroll from '../../components/scrollcomp/HorizontalScroll';
+import ToppingsModal from './ToppingModal';
 
 const GiftScreen = () => {
   const dispatch = useDispatch();
@@ -26,6 +27,9 @@ const GiftScreen = () => {
   const {brandData, brandDataLoading, error} = useSelector(
     state => state.brandSlice,
   );
+  const [isToppingsModalVisible, setToppingsModalVisible] = useState(false);
+  const [currentItem, setCurrentItem] = useState(null);
+
   useEffect(() => {
     if (brand) {
       dispatch(fetchBrandData(brand));
@@ -51,7 +55,9 @@ const GiftScreen = () => {
   };
 
   const renderProductItem = ({item}) => (
-    <View style={styles.item}>
+    <TouchableOpacity
+      onPress={() => openToppingsModal(item)}
+      style={styles.item}>
       <View style={{flex: 1, marginHorizontal: 15}}>
         <Text style={styles.title}>{item.name}</Text>
         <Text numberOfLines={2} style={styles.description}>
@@ -74,7 +80,12 @@ const GiftScreen = () => {
       <TouchableOpacity style={styles.plus} onPress={() => addCart(item)}>
         <PlusCircleIcon color={colors.darkGreen} size={30} />
       </TouchableOpacity>
-    </View>
+      <ToppingsModal
+        visible={isToppingsModalVisible}
+        onClose={() => setToppingsModalVisible(false)}
+        toppings={brandData.data?.menus[0]?.toppings || []}
+      />
+    </TouchableOpacity>
   );
 
   const renderCategoryItem = ({item: category}) => (
@@ -90,6 +101,12 @@ const GiftScreen = () => {
     </View>
   );
 
+  const openToppingsModal = item => {
+    const toppingsForModal = brandData.data?.menus[0]?.toppings || [];
+
+    setCurrentItem({...item, toppings: toppingsForModal});
+    setToppingsModalVisible(true);
+  };
   return (
     <View style={styles.container}>
       {brandDataLoading ? (

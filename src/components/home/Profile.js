@@ -1,21 +1,32 @@
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {
-  UserIcon as UserIconSolid,
-  Cog6ToothIcon as Cog6ToothIcon,
+  Cog6ToothIcon as Cog6ToothIconSolid,
+  HeartIcon as HeartIconSolid,
 } from 'react-native-heroicons/solid';
 import {useNavigation} from '@react-navigation/native';
+import {colors} from '../../utils/colors';
 const Profile = ({item}) => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.secondContainer}>
-        <Image source={{uri: item?.profilePicture}} style={styles.image} />
         <Text style={styles.text}>{item?.username}</Text>
       </View>
-      <TouchableOpacity onPress={() => navigation.navigate('SettingScreen')}>
-        <Cog6ToothIcon width={24} height={24} color={'white'} />
-      </TouchableOpacity>
+      <View style={{flexDirection: 'row'}}>
+        <TouchableOpacity onPress={() => navigation.navigate('FavoriteScreen')}>
+          <HeartIconSolid
+            style={{
+              marginRight: 8,
+              borderRadius: 4,
+            }}
+            color={colors.white}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('SettingScreen')}>
+          <Cog6ToothIconSolid width={24} height={24} color={'white'} />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -28,6 +39,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginHorizontal: 16,
+    marginVertical: 8,
   },
   secondContainer: {
     flexDirection: 'row',

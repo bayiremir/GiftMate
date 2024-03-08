@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   FlatList,
   Image,
@@ -10,11 +10,49 @@ import {
 import {colors} from '../../utils/colors';
 import LottieComponent from '../../components/lottie/LottieComponent';
 import {useNavigation} from '@react-navigation/native';
-import {StarIcon} from 'react-native-heroicons/solid';
+import {StarIcon as StarIconSolid} from 'react-native-heroicons/solid';
+import {
+  ClockIcon as ClockIconOutline,
+  HeartIcon as HeartIconOutline,
+} from 'react-native-heroicons/outline';
+import {HeartIcon as HeartIconSolid} from 'react-native-heroicons/solid';
+import {useDispatch} from 'react-redux';
+import {storage} from '../../utils/storage';
+import {
+  addFavorite,
+  removeFavorite,
+  setFavorite,
+} from '../../redux/slices/favoriteSlice';
 
 const PopularRestaurants = ({item, loading}) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const [favorites, setFavorites] = useState([]);
 
+  useEffect(() => {
+    const loadFavorites = async () => {
+      const favoritesString = await storage.getString('favorites');
+      const favoriteCodes = favoritesString ? JSON.parse(favoritesString) : [];
+      setFavorites(favoriteCodes);
+    };
+    loadFavorites();
+  }, []);
+
+  const handleFavorite = async vendor => {
+    const isFavorite = favorites.includes(vendor.code);
+    let updatedFavorites = isFavorite
+      ? favorites.filter(code => code !== vendor.code)
+      : [...favorites, vendor.code];
+
+    // Correctly use JSON.stringify to serialize the array into a string
+    await storage.set('favorites', JSON.stringify(updatedFavorites));
+    setFavorites(updatedFavorites);
+
+    // Dispatch Redux actions
+    isFavorite
+      ? dispatch(removeFavorite(vendor.code))
+      : dispatch(addFavorite(vendor.code));
+  };
   const renderRestaurant = ({item}) => (
     <TouchableOpacity
       style={styles.restaurantContainer}
@@ -43,24 +81,56 @@ const PopularRestaurants = ({item, loading}) => {
           </Text>
         </View>
       )}
+      <TouchableOpacity
+        style={styles.heartIcon}
+        onPress={() => handleFavorite(item.vendor)}>
+        {favorites.includes(item.vendor.code) ? (
+          <HeartIconSolid size={16} color={colors.yemekred} />
+        ) : (
+          <HeartIconOutline size={16} color={colors.black} />
+        )}
+      </TouchableOpacity>
       <View style={styles.infoContainer}>
-        <Text style={styles.restaurantTitle} numberOfLines={1}>
-          {item.vendor.name}
-        </Text>
-        <View style={styles.ratingContainer}>
-          <StarIcon width={16} height={16} color={'orange'} />
-          <Text style={styles.ratingText}>{item.vendor.rating}</Text>
-          <Text style={styles.reviewText}>({item.vendor.review_number}+)</Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+          <Text style={styles.restaurantTitle}>{item.vendor.name}</Text>
+          <View style={{flexDirection: 'row'}}>
+            <StarIconSolid width={16} height={16} color={'orange'} />
+            <Text style={styles.ratingText}>{item.vendor.rating}</Text>
+            <Text style={styles.reviewText}>
+              ({item.vendor.review_number}+)
+            </Text>
+          </View>
         </View>
         <View style={styles.detailsContainer}>
+          <Text style={styles.detailText}>₺₺ • </Text>
           <Text style={styles.detailText} numberOfLines={1}>
             {item.vendor.minimum_order_amount} TL min.
           </Text>
           {item.vendor.characteristics.primary_cuisine && (
             <Text style={styles.cuisineText} numberOfLines={1}>
-              * {item.vendor.characteristics.primary_cuisine.name}
+              • {item.vendor.characteristics.primary_cuisine.name}
             </Text>
           )}
+        </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            marginVertical: 5,
+          }}>
+          <ClockIconOutline
+            style={{marginRight: 5}}
+            width={16}
+            height={16}
+            color={'white'}
+          />
+          <Text style={styles.cuisineText}>
+            {item.vendor.minimum_delivery_time} min
+          </Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -89,7 +159,7 @@ const PopularRestaurants = ({item, loading}) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
+    flex: 1,
     shadowColor: 'black ',
     shadowOffset: {width: 0, height: 10},
     shadowOpacity: 0.25,
@@ -106,12 +176,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   restaurantContainer: {
-    width: 200,
-
+    width: 250,
+    height: 220,
     marginRight: 15,
-    backgroundColor: colors.middleGreen,
     borderRadius: 10,
     overflow: 'hidden',
+    borderWidth: 0.4,
+    borderColor: 'white',
   },
   image: {
     height: 120,
@@ -121,13 +192,14 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   restaurantTitle: {
+    flex: 1,
     fontSize: 16,
     fontWeight: '500',
     color: 'white',
-    textAlign: 'center',
-    marginBottom: 5,
   },
   ratingContainer: {
+    flex: 1,
+
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -135,7 +207,7 @@ const styles = StyleSheet.create({
   ratingText: {
     marginLeft: 5,
     color: 'white',
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
   },
   reviewText: {
@@ -145,7 +217,6 @@ const styles = StyleSheet.create({
   },
   detailsContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
     marginTop: 5,
   },
   detailText: {
@@ -156,6 +227,15 @@ const styles = StyleSheet.create({
   cuisineText: {
     color: 'white',
     fontSize: 14,
+  },
+  heartIcon: {
+    position: 'absolute',
+    top: 12,
+    right: 10,
+    backgroundColor: colors.white,
+    padding: 4,
+    borderRadius: 300,
+    zIndex: 1,
   },
 });
 

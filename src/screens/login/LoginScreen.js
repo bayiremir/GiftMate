@@ -34,8 +34,8 @@ const LoginScreen = () => {
 
   const handleLogin = () => {
     dispatch(fetchAuth({username, password}));
-    storage.set('isLogin', true);
     dispatch(setIsLogin(true));
+    storage.set('isLogin', true);
   };
 
   const handleShowPassword = () => {

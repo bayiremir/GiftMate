@@ -23,7 +23,6 @@ import {launchImageLibrary} from 'react-native-image-picker';
 import {storage} from '../../utils/storage';
 
 const ProfileScreen = () => {
-  const [profilePicture, setProfilePicture] = useState(null);
   const dispatch = useDispatch();
   const {received, receivedLoading} = useSelector(
     state => state.receiverGiftSlice,
@@ -38,65 +37,27 @@ const ProfileScreen = () => {
   const {photoUrl, uploading} = useSelector(state => state.uploadPictureSlice);
 
   useEffect(() => {
-    if (storage.getString('profilePicture') === null) {
-      setProfilePicture(
-        'https://www.iosapptemplates.com/wp-content/uploads/2019/06/empty-avatar.jpg',
-      );
-    } else {
-      photo = storage.getString('profilePicture');
-      setProfilePicture(photo);
-    }
-  }, []);
-
-  useEffect(() => {
     dispatch(fetchProfile());
     dispatch(fetchReceiverGifts());
     dispatch(fetchMySendGift());
   }, [dispatch]);
 
-  const selectPhotoTapped = () => {
-    const options = {
-      storageOptions: {
-        skipBackup: true,
-        path: 'images',
-      },
-    };
-
-    launchImageLibrary(options, response => {
-      if (response.didCancel) {
-        console.log('User cancelled photo picker');
-      } else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
-      } else {
-        const source = {uri: response.assets[0].uri};
-        setProfilePicture(source.uri);
-        dispatch(fetchProfilePhoto(response.assets[0]));
-        console.log(photoUrl, 'photoUrl');
-        storage.set('profilePicture', photoUrl);
-      }
-    });
-  };
-
   const combinedGifts = [
     ...(received ?? []).map(item => ({...item, type: 'received'})),
     ...(mySendGift ?? []).map(item => ({...item, type: 'sent'})),
-  ].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // En yeni öğeden en eskiye doğru sırala
+  ].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
   const renderHeader = () => (
     <View style={{}}>
       <View style={{alignItems: 'center'}}>
-        {uploading ? (
-          <LottieComponent />
-        ) : (
-          <TouchableOpacity onPress={selectPhotoTapped}>
-            <Image
-              source={{
-                uri: profilePicture,
-              }}
-              style={styles.image}
-            />
-          </TouchableOpacity>
-        )}
+        <TouchableOpacity onPress={null}>
+          <Image
+            source={{
+              uri: 'https://www.iosapptemplates.com/wp-content/uploads/2019/06/empty-avatar.jpg',
+            }}
+            style={styles.image}
+          />
+        </TouchableOpacity>
         <Text style={styles.username}>{profileContent?.username}</Text>
         <ProfileDashboard balance={profileContent.balance} />
         <RewardDashboard />

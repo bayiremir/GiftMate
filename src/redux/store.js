@@ -17,12 +17,13 @@ import sendMessageSlice from './slices/sendMessageSlice';
 import uploadPictureSlice from './slices/uploadPictureSlice';
 import brandSlice from './slices/products/brandSlice';
 import resturantSlice from './slices/products/resturantSlice';
+import favoriteSlice from './slices/favoriteSlice';
 
 export const store = configureStore({
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
-      immutableCheck: {warnAfter: 500},
-      serializableCheck: {warnAfter: 500},
+      immutableCheck: {warnAfter: 1000},
+      serializableCheck: {warnAfter: 1000},
     }),
   reducer: {
     authSlice: authSlice,
@@ -43,5 +44,6 @@ export const store = configureStore({
     uploadPictureSlice: uploadPictureSlice,
     brandSlice: brandSlice,
     resturantSlice: resturantSlice,
+    favoriteSlice: favoriteSlice,
   },
 });

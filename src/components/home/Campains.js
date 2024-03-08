@@ -1,13 +1,22 @@
-import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
+import {
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import {colors} from '../../utils/colors';
 import LottieComponent from '../../components/lottie/LottieComponent';
 
 const Campains = ({item, loading}) => {
   const renderCampains = ({item}) => (
-    <View style={styles.imagesContainer}>
+    <TouchableOpacity
+      onPress={() => console.log('basıldı', item?.voucher?.voucher_code)}
+      style={styles.imagesContainer}>
       <Image source={{uri: item.image_small}} style={styles.image} />
-    </View>
+    </TouchableOpacity>
   );
 
   return (

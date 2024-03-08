@@ -36,6 +36,14 @@ const cartSlice = createSlice({
       );
       storage.set('cart', JSON.stringify(state.items));
     },
+    updateItemToppings: (state, action) => {
+      const {itemId, toppings} = action.payload;
+      const itemIndex = state.items.findIndex(item => item.id === itemId);
+      if (itemIndex >= 0) {
+        state.items[itemIndex].selectedToppings = toppings;
+      }
+      storage.set('cart', JSON.stringify(state.items));
+    },
   },
   extraReducers: builder => {
     builder.addCase(fetchCartItems.fulfilled, (state, action) => {
