@@ -15,7 +15,10 @@ const Campains = ({item, loading}) => {
     <TouchableOpacity
       onPress={() => console.log('basıldı', item?.voucher?.voucher_code)}
       style={styles.imagesContainer}>
-      <Image source={{uri: item.image_small}} style={styles.image} />
+      <Image
+        source={{uri: item.image_small || 'https:'}}
+        style={styles.image}
+      />
     </TouchableOpacity>
   );
 

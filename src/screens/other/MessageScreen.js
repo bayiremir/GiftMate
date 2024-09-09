@@ -12,8 +12,9 @@ import {colors} from '../../utils/colors';
 import {fetchGetMessage} from '../../redux/slices/getMessageSlice';
 import {useDispatch, useSelector} from 'react-redux';
 import LottieComponent from '../../components/lottie/LottieComponent';
-import {io} from 'socket.io-client';
 import {useNavigation} from '@react-navigation/native';
+import {io} from 'socket.io-client';
+
 const socket = io('https://emag.uskudar.dev');
 
 const MessageScreen = () => {
